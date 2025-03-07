@@ -50,6 +50,14 @@
                     "maxItems": 1,
                     "minItems": 0,
                     "type": "array"
+                },
+                "RedenAanvraagLevensonderhoud": {
+                    "items": {
+                        "$ref": "#/definitions/RedenAanvraagLevensonderhoud"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
                 }
             },
             "required": [
@@ -89,7 +97,7 @@
                             "$ref": "#/definitions/NederlandsPostbusadres"
                         },
                         {
-                            "$ref": "#/definitions/Buitenlandsstraatadres"
+                            "$ref": "#/definitions/StraatadresBuitenland"
                         }
                     ],
                     "type": "object"
@@ -174,19 +182,26 @@
         "Bewindvoerder": {
             "additionalProperties": false,
             "properties": {
-                "KvkNummer": {
-                    "description": "",
-                    "pattern": "^-?[0-9]{1,}$",
-                    "type": "integer"
+                "RolOrganisatie": {
+                    "description": "Een aanduiding van de rol die de organisatie in de relatie tot de PERSOON heeft, Bijvoorbeeld Curator, Mentor, GemachtigdeBron: GBI - Werkgroep Ontologie",
+                    "enum": [
+                        "Arbeidsrelatie",
+                        "Curator",
+                        "Bewindvoerder"
+                    ],
+                    "type": "string"
                 },
-                "Vestigingsnummer": {
-                    "description": "Landelijk uniek identificerend administratienummer van een VESTIGING zoals toegewezen door de Kamer van Koophandel (KvK).Bron: RSGB3.0",
-                    "pattern": "^-?[0-9]{1,}$",
-                    "type": "integer"
+                "Vestiging": {
+                    "items": {
+                        "$ref": "#/definitions/Vestiging"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
                 }
             },
             "required": [
-                "KvkNummer"
+                "RolOrganisatie"
             ]
         },
         "Bewoner": {
@@ -217,47 +232,6 @@
             "required": [
                 "Burgerservicenummer",
                 "Geboortedatum"
-            ]
-        },
-        "Buitenlandsstraatadres": {
-            "additionalProperties": false,
-            "properties": {
-                "HuisnummerBuitenland": {
-                    "description": "De aanduiding van een (deel van een) pand in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Het HUISNUMMER BUITENLAND is inclusief een eventuele huisnummertoevoeging.",
-                    "pattern": "^-?[0-9]{1,}$",
-                    "type": "integer"
-                },
-                "LandencodeIso": {
-                    "description": "De code van een huidig land of gebiedsdeel conform ISO 3166.Norminstantie: ISO 3166 (Entity, Alpha-2 code)Bron: SGR 16.0Opmerking:LANDENCODE ISO is niet expliciet gedefinieerd in ISO 3166. De omschrijving van dit gegevenselement is dan ook een SUWI-omschrijving.Tabel ISO 3166 Codes for the representation of names of countries and their subdivisionsLANDENCODE ISO dient in principe in ADRES BUITENLAND altijd te worden opgenomen.Indien voor een bepaald land (nog) geen code in ISO 3166 staat vermeld, moet LANDSNAAM worden ingevuld.",
-                    "type": "string"
-                },
-                "Landsnaam": {
-                    "description": "De naam van een land of een gebiedsdeel.Norminstantie: UGRBron: SGR 16.0Opmerking:Indien voor een bepaald land (nog) geen LANDENCODE ISO in ISO 3166 vermeld staat, moet LANDSNAAM worden ingevuld.",
-                    "type": "string"
-                },
-                "LocatieomschrijvingBuitenland": {
-                    "description": "Een nadere aanduiding bij een buitenlands adres.Norminstantie: UGRBron: SGR 16.0Opmerking:Gebruikmaking van dit gegevenselement kan om verschillende redenen wenselijk dan wel noodzakelijk zijn. Het HUISNUMMER BUITENLAND kan ontbreken of men wil niet-uiterlijk waarneembare kenmerken, zoals toevoegingen voor nadere differentiatie achter de voordeur, vermelden.",
-                    "type": "string"
-                },
-                "PostcodeBuitenland": {
-                    "description": "Een door de buitenlandse postdienst vastgestelde codering voor een adres in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:De indeling naar staat, departement, provincie of gebiedsdeel is in de POSTCODE BUITENLAND vervat en dus overbodig geworden om apart door te geven in een gegevensuitwisseling. Indien er geen POSTCODE BUITENLAND is, kan echter de aanduiding van staat, departement, provincie of gebiedsdeel opgenomen worden in REGIONAAM BUITENLAND.",
-                    "pattern": "^[1-9][0-9]{3} ?[a-zA-Z]{2}$",
-                    "type": "string"
-                },
-                "RegionaamBuitenland": {
-                    "description": "De naam van een gebiedsdeel binnen een land.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als een REGIONAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de REGIONAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd. Tenzij anders vermeld, worden de inkortingsregels van rechts beginnend toegepast.Inkortingsregel 1.Verwijder leestekens uit de REGIONAAM BUITENLAND.Inkortingsregel 2.Kort in de REGIONAAM BUITENLAND, naar eigen inzicht, de tussenvoegsels in.Inkortingsregel 3.Kort het eerste bijvoeglijk naamwoord, en indien nodig de daarop volgende bijvoeglijke naamwoorden, van een samengestelde REGIONAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 4.Kort het eerste woord na de tussenvoegsel, en indien nodig de daaropvolgende woorden, van een samengestelde REGIONAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 5.Vraag advies aan degene, die REGIONAAM BUITENLAND verstrekt.",
-                    "type": "string"
-                },
-                "StraatnaamBuitenland": {
-                    "description": "De naam van een straat in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als de STRAATNAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de STRAATNAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd.Inkortingsregel 1.Verwijder de leestekens punt (.) en apostrof uit de STRAATNAAM BUITENLAND.Inkortingsregel 2.Kort de woorden die een richting aanduiden, indien zij als laatste element en zelfstandig in de STRAATNAAM BUITENLAND voorkomen, in tot een letter.Voorbeelden:North NOuest OSouth SEastside EInkortingsregel 3.Kort de uitgangen of losse woorden die de straataanduiding betreffen zoveel mogelijk volgens de NEN 5825 in en anders naar eigen inzicht.Voorbeelden:strasse strboulevard blvdstreet st.rue rcanal canhavn hInkortingsregel 4.De getallen in Romeinse cijfers worden vervangen door Arabische cijfers.Voorbeelden:XXV 25XIII 13Inkortingsregel 5.De geschreven telwoorden worden vervangen door Arabische cijfers.Voorbeelden:seize 16eight 8Inkortingsregel 6.De voluit geschreven rangtelwoorden worden vervangen door Arabische cijfers plus hun gebruikelijke uitgang.Voorbeeld:sixième 6eseventeenth 17thInkortingsregel 7.Kort de tussenvoegsels zoveel mogelijk volgens de NEN 5825 in en anders naar eigen inzicht.Voorbeelden:an den adde dof oInkortingsregel 8.Kort het eerste bijvoeglijk naamwoord of de eerste titel bij het naambepalende zelfstandige woord tot op de eerste letter in. Dit zoveel mogelijk volgens de NEN 5825 en anders naar eigen inzicht.Voorbeelden:Comte CGraf GGreat GQueen QGeneral GInkortingsregel 9.Pas inkortingsregel 8 opnieuw toe, maar nu op het tweede bijvoeglijk naamwoord of de tweede titel.Inkortingsregel 10.Vraag advies aan degene die de STRAATNAAM BUITENLAND heeft verstrekt.",
-                    "type": "string"
-                },
-                "WoonplaatsnaamBuitenland": {
-                    "description": "De naam van een woonplaats in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als een WOONPLAATSNAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de WOONPLAATSNAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd. Tenzij anders vermeld, worden de inkortingsregels van rechts beginnend toegepast.Inkortingsregel 1.Verwijder leestekens uit de WOONPLAATSNAAM BUITENLAND.Inkortingsregel 2.Kort in de WOONPLAATSNAAM BUITENLAND, naar eigen inzicht, de tussenvoegsels in.Inkortingsregel 3.Kort het eerste bijvoeglijk naamwoord, en indien nodig de daarop volgende bijvoeglijke naamwoorden, van een samengestelde WOONPLAATSNAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 4.Kort het eerste woord na de tussenvoegsel, en indien nodig de daaropvolgende woorden, van een samengestelde WOONPLAATSNAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 5.Vraag advies aan degene, die WOONPLAATSNAAM BUITENLAND verstrekt.",
-                    "type": "string"
-                }
-            },
-            "required": [
             ]
         },
         "Contactgegevens": {
@@ -313,14 +287,6 @@
         "Dienst": {
             "additionalProperties": false,
             "properties": {
-                "": {
-                    "description": "",
-                    "type": ""
-                },
-                "Begindatum": {
-                    "description": "n.t.b.",
-                    "type": "string"
-                },
                 "Besluit": {
                     "items": {
                         "$ref": "#/definitions/Besluit"
@@ -335,10 +301,6 @@
                     },
                     "minItems": 1,
                     "type": "array"
-                },
-                "Einddatum": {
-                    "description": "n.t.b.",
-                    "type": "string"
                 },
                 "Referteperiode": {
                     "items": {
@@ -592,6 +554,19 @@
                     ],
                     "type": "string"
                 },
+                "BrutoNetto": {
+                    "description": "Geeft aan of de inkomsten geadministreerd in dit inkomstencomponent bruto of netto zijn.",
+                    "enum": [
+                        "Bruto",
+                        "Netto"
+                    ],
+                    "type": "string"
+                },
+                "Inkomsten": {
+                    "description": "Het geldbedrag waarop de boeking betrekking heeft geldig voor de periode in dit inkomstencomponent.",
+                    "pattern": "^-?[0-9]((;|,|\\.)[0-9]{2}|)$",
+                    "type": "number"
+                },
                 "Inkomstencomponenttype": {
                     "description": "Het type van de abstracte inkomstencomponent (zie ook alle specialisatierelaties).",
                     "enum": [
@@ -640,116 +615,6 @@
                 "Geboortedatum": {
                     "description": "De datum van geboorte van een PERSOON.Bron: NEN 1888:2002 - Geboortedatum (overgenomen zoals in SGR)Opmerking:Deze datum staat gewoonlijk vermeld op de geboorteakte dan wel een ander brondocument.Een GEBOORTEDATUM behoort te worden vastgesteld in verband met zijn rechtsgeldige betekenis, in het bijzonder voor de instellingen die minimaal een SZ-WET uitvoeren.",
                     "type": "string"
-                }
-            },
-            "required": [
-                "Burgerservicenummer",
-                "Geboortedatum"
-            ]
-        },
-        "Medeaanvrager": {
-            "additionalProperties": false,
-            "properties": {
-                "BeschikbaarheidWerk": {
-                    "items": {
-                        "$ref": "#/definitions/BeschikbaarheidWerk"
-                    },
-                    "maxItems": 1,
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "Bewindvoering": {
-                    "items": {
-                        "$ref": "#/definitions/Bewindvoerder"
-                    },
-                    "maxItems": 1,
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "Burgerservicenummer": {
-                    "description": "Een uniek identificerend nummer van een PERSOON, die ingeschreven staat in de Gemeentelijke Basisadministratie Persoonsgegevens (GBA) of de Registratie Niet-ingezetenen (RNI).Bron: SGROpmerking:Elk nummer moet voldoen aan de bij de voorwaarden beschreven proef.Voorwaarden waarde BSN:  Indien het nummer per cijfer wordt aangeduid als (s0 s1 s2 s3 s4 s5 s6 s7 s8), dan is de volgende voorwaarde te controleren: (9 x s0) + (8 x s1) + (7 x s2) + (6 x s3) + (5 x s4) + (4 x s5) + (3 x s6) + (2 x s7) - (1 x s8) is deelbaar door 11Toelichting:  Het Burgerservicenummer onderscheidt zich van het Sofi-nummer voornamelijk voor wat betreft het bereik ervan en de wijze waarop wettelijk is vastgelegd wat met behulp van het Burgerservicenummer mag gebeuren.  De gebruikers van het Burgerservicenummer bestaan uit overheidsorganen alsmede niet-overheidsorganen. Omdat het niet duidelijk is wat de criteria zijn om niet-overheidsorganen wel of niet toe te laten tot het gebruik van het Burgerservicenummer is besloten om de gebruikersaspecten niet in de definitie op te nemen.De oorspronkelijke naamgeving en definitie van dit gegevenselement conform de (authentieke) bron:Elementnaam:    BurgerservicenummerDefinitie:    Elk ingeschreven persoon heeft een BSN, een nummer dat de persoon uniek identificeert in alle overheidsadministraties.Norminstantie:    GBA",
-                    "pattern": "^[0-9]{9}$",
-                    "type": "string"
-                },
-                "Contactgegevens": {
-                    "items": {
-                        "$ref": "#/definitions/Contactgegevens"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "Correspondentieadres": {
-                    "oneOf": [
-                        {
-                            "$ref": "#/definitions/Nederlandsstraatadres"
-                        },
-                        {
-                            "$ref": "#/definitions/NederlandsPostbusadres"
-                        },
-                        {
-                            "$ref": "#/definitions/Buitenlandsstraatadres"
-                        }
-                    ],
-                    "type": "object"
-                },
-                "Geboortedatum": {
-                    "description": "De datum van geboorte van een PERSOON.Bron: NEN 1888:2002 - Geboortedatum (overgenomen zoals in SGR)Opmerking:Deze datum staat gewoonlijk vermeld op de geboorteakte dan wel een ander brondocument.Een GEBOORTEDATUM behoort te worden vastgesteld in verband met zijn rechtsgeldige betekenis, in het bijzonder voor de instellingen die minimaal een SZ-WET uitvoeren.",
-                    "type": "string"
-                },
-                "Huisvesting": {
-                    "items": {
-                        "$ref": "#/definitions/Huisvesting"
-                    },
-                    "maxItems": 1,
-                    "minItems": 1,
-                    "type": "array",
-                    "uniqueItems": true
-                },
-                "Identiteitsbewijs": {
-                    "items": {
-                        "$ref": "#/definitions/Identiteitsbewijs"
-                    },
-                    "minItems": 0,
-                    "type": "array",
-                    "uniqueItems": true
-                },
-                "Inkomsten": {
-                    "items": {
-                        "$ref": "#/definitions/Inkomstencomponent"
-                    },
-                    "minItems": 0,
-                    "type": "array",
-                    "uniqueItems": true
-                },
-                "RedenenAanvraag": {
-                    "items": {
-                        "$ref": "#/definitions/RedenAanvraag"
-                    },
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "UitbetalingUitkering": {
-                    "items": {
-                        "$ref": "#/definitions/UitbetalingUitkering"
-                    },
-                    "maxItems": 1,
-                    "minItems": 0,
-                    "type": "array"
-                },
-                "Vermogenscomponenten": {
-                    "items": {
-                        "$ref": "#/definitions/Vermogenscomponent"
-                    },
-                    "minItems": 0,
-                    "type": "array",
-                    "uniqueItems": true
-                },
-                "Vreemdelingendocument": {
-                    "items": {
-                        "$ref": "#/definitions/Vreemdelingendocument"
-                    },
-                    "minItems": 0,
-                    "type": "array"
                 }
             },
             "required": [
@@ -991,7 +856,7 @@
                             "$ref": "#/definitions/NederlandsPostbusadres"
                         },
                         {
-                            "$ref": "#/definitions/Buitenlandsstraatadres"
+                            "$ref": "#/definitions/StraatadresBuitenland"
                         }
                     ],
                     "type": "object"
@@ -1100,7 +965,7 @@
                 },
                 "VoorliggendeVoorzieningen": {
                     "items": {
-                        "$ref": "#/definitions/"
+                        "$ref": "#/definitions/Voorwaarde"
                     },
                     "minItems": 0,
                     "type": "array"
@@ -1196,10 +1061,6 @@
                     ],
                     "type": "string"
                 },
-                "RedenNietEerderAanvragen": {
-                    "description": "",
-                    "type": "string"
-                },
                 "SpecificatieBijzondereRedenLaterIngaanStartdatumAanvraag": {
                     "description": "",
                     "type": "string"
@@ -1221,6 +1082,47 @@
                 },
                 "Startdatum": {
                     "description": "De startdatum van de referteperiode",
+                    "type": "string"
+                }
+            },
+            "required": [
+            ]
+        },
+        "StraatadresBuitenland": {
+            "additionalProperties": false,
+            "properties": {
+                "HuisnummerBuitenland": {
+                    "description": "De aanduiding van een (deel van een) pand in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Het HUISNUMMER BUITENLAND is inclusief een eventuele huisnummertoevoeging.",
+                    "pattern": "^-?[0-9]{1,}$",
+                    "type": "integer"
+                },
+                "LandencodeIso": {
+                    "description": "De code van een huidig land of gebiedsdeel conform ISO 3166.Norminstantie: ISO 3166 (Entity, Alpha-2 code)Bron: SGR 16.0Opmerking:LANDENCODE ISO is niet expliciet gedefinieerd in ISO 3166. De omschrijving van dit gegevenselement is dan ook een SUWI-omschrijving.Tabel ISO 3166 Codes for the representation of names of countries and their subdivisionsLANDENCODE ISO dient in principe in ADRES BUITENLAND altijd te worden opgenomen.Indien voor een bepaald land (nog) geen code in ISO 3166 staat vermeld, moet LANDSNAAM worden ingevuld.",
+                    "type": "string"
+                },
+                "Landsnaam": {
+                    "description": "De naam van een land of een gebiedsdeel.Norminstantie: UGRBron: SGR 16.0Opmerking:Indien voor een bepaald land (nog) geen LANDENCODE ISO in ISO 3166 vermeld staat, moet LANDSNAAM worden ingevuld.",
+                    "type": "string"
+                },
+                "LocatieomschrijvingBuitenland": {
+                    "description": "Een nadere aanduiding bij een buitenlands adres.Norminstantie: UGRBron: SGR 16.0Opmerking:Gebruikmaking van dit gegevenselement kan om verschillende redenen wenselijk dan wel noodzakelijk zijn. Het HUISNUMMER BUITENLAND kan ontbreken of men wil niet-uiterlijk waarneembare kenmerken, zoals toevoegingen voor nadere differentiatie achter de voordeur, vermelden.",
+                    "type": "string"
+                },
+                "PostcodeBuitenland": {
+                    "description": "Een door de buitenlandse postdienst vastgestelde codering voor een adres in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:De indeling naar staat, departement, provincie of gebiedsdeel is in de POSTCODE BUITENLAND vervat en dus overbodig geworden om apart door te geven in een gegevensuitwisseling. Indien er geen POSTCODE BUITENLAND is, kan echter de aanduiding van staat, departement, provincie of gebiedsdeel opgenomen worden in REGIONAAM BUITENLAND.",
+                    "pattern": "^[1-9][0-9]{3} ?[a-zA-Z]{2}$",
+                    "type": "string"
+                },
+                "RegionaamBuitenland": {
+                    "description": "De naam van een gebiedsdeel binnen een land.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als een REGIONAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de REGIONAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd. Tenzij anders vermeld, worden de inkortingsregels van rechts beginnend toegepast.Inkortingsregel 1.Verwijder leestekens uit de REGIONAAM BUITENLAND.Inkortingsregel 2.Kort in de REGIONAAM BUITENLAND, naar eigen inzicht, de tussenvoegsels in.Inkortingsregel 3.Kort het eerste bijvoeglijk naamwoord, en indien nodig de daarop volgende bijvoeglijke naamwoorden, van een samengestelde REGIONAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 4.Kort het eerste woord na de tussenvoegsel, en indien nodig de daaropvolgende woorden, van een samengestelde REGIONAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 5.Vraag advies aan degene, die REGIONAAM BUITENLAND verstrekt.",
+                    "type": "string"
+                },
+                "StraatnaamBuitenland": {
+                    "description": "De naam van een straat in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als de STRAATNAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de STRAATNAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd.Inkortingsregel 1.Verwijder de leestekens punt (.) en apostrof uit de STRAATNAAM BUITENLAND.Inkortingsregel 2.Kort de woorden die een richting aanduiden, indien zij als laatste element en zelfstandig in de STRAATNAAM BUITENLAND voorkomen, in tot een letter.Voorbeelden:North NOuest OSouth SEastside EInkortingsregel 3.Kort de uitgangen of losse woorden die de straataanduiding betreffen zoveel mogelijk volgens de NEN 5825 in en anders naar eigen inzicht.Voorbeelden:strasse strboulevard blvdstreet st.rue rcanal canhavn hInkortingsregel 4.De getallen in Romeinse cijfers worden vervangen door Arabische cijfers.Voorbeelden:XXV 25XIII 13Inkortingsregel 5.De geschreven telwoorden worden vervangen door Arabische cijfers.Voorbeelden:seize 16eight 8Inkortingsregel 6.De voluit geschreven rangtelwoorden worden vervangen door Arabische cijfers plus hun gebruikelijke uitgang.Voorbeeld:sixième 6eseventeenth 17thInkortingsregel 7.Kort de tussenvoegsels zoveel mogelijk volgens de NEN 5825 in en anders naar eigen inzicht.Voorbeelden:an den adde dof oInkortingsregel 8.Kort het eerste bijvoeglijk naamwoord of de eerste titel bij het naambepalende zelfstandige woord tot op de eerste letter in. Dit zoveel mogelijk volgens de NEN 5825 en anders naar eigen inzicht.Voorbeelden:Comte CGraf GGreat GQueen QGeneral GInkortingsregel 9.Pas inkortingsregel 8 opnieuw toe, maar nu op het tweede bijvoeglijk naamwoord of de tweede titel.Inkortingsregel 10.Vraag advies aan degene die de STRAATNAAM BUITENLAND heeft verstrekt.",
+                    "type": "string"
+                },
+                "WoonplaatsnaamBuitenland": {
+                    "description": "De naam van een woonplaats in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als een WOONPLAATSNAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de WOONPLAATSNAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd. Tenzij anders vermeld, worden de inkortingsregels van rechts beginnend toegepast.Inkortingsregel 1.Verwijder leestekens uit de WOONPLAATSNAAM BUITENLAND.Inkortingsregel 2.Kort in de WOONPLAATSNAAM BUITENLAND, naar eigen inzicht, de tussenvoegsels in.Inkortingsregel 3.Kort het eerste bijvoeglijk naamwoord, en indien nodig de daarop volgende bijvoeglijke naamwoorden, van een samengestelde WOONPLAATSNAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 4.Kort het eerste woord na de tussenvoegsel, en indien nodig de daaropvolgende woorden, van een samengestelde WOONPLAATSNAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 5.Vraag advies aan degene, die WOONPLAATSNAAM BUITENLAND verstrekt.",
                     "type": "string"
                 }
             },
@@ -1397,6 +1299,24 @@
                 "CodeSoortVermogenscomponent"
             ]
         },
+        "Vestiging": {
+            "additionalProperties": false,
+            "properties": {
+                "KvkNummer": {
+                    "description": "",
+                    "pattern": "^-?[0-9]{1,}$",
+                    "type": "integer"
+                },
+                "Vestigingsnummer": {
+                    "description": "Landelijk uniek identificerend administratienummer van een VESTIGING zoals toegewezen door de Kamer van Koophandel (KvK).Bron: RSGB3.0",
+                    "pattern": "^-?[0-9]{1,}$",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "KvkNummer"
+            ]
+        },
         "Voorwaarde": {
             "additionalProperties": false,
             "properties": {
@@ -1523,8 +1443,8 @@
         }
     },
     "properties": {
-        "Aanvraag": {
-            "$ref": "#/definitions/Aanvraag"
+        "Zaak": {
+            "$ref": "#/definitions/Zaak"
         }
     },
     "type": "object"
