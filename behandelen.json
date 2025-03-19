@@ -144,6 +144,33 @@
                 "Tenaamstelling"
             ]
         },
+        "BekostigerOrganisatie": {
+            "additionalProperties": false,
+            "properties": {
+                "Naam": {
+                    "description": "De feitelijke naam van de organisatorische eenheid.Bron: RGBZ2.0",
+                    "type": "string"
+                }
+            },
+            "required": [
+            ]
+        },
+        "BekostigerPersoon": {
+            "additionalProperties": false,
+            "properties": {
+                "Burgerservicenummer": {
+                    "description": "Een uniek identificerend nummer van een PERSOON, die ingeschreven staat in de Gemeentelijke Basisadministratie Persoonsgegevens (GBA) of de Registratie Niet-ingezetenen (RNI).Bron: SGROpmerking:Elk nummer moet voldoen aan de bij de voorwaarden beschreven proef.Voorwaarden waarde BSN:  Indien het nummer per cijfer wordt aangeduid als (s0 s1 s2 s3 s4 s5 s6 s7 s8), dan is de volgende voorwaarde te controleren: (9 x s0) + (8 x s1) + (7 x s2) + (6 x s3) + (5 x s4) + (4 x s5) + (3 x s6) + (2 x s7) - (1 x s8) is deelbaar door 11Toelichting:  Het Burgerservicenummer onderscheidt zich van het Sofi-nummer voornamelijk voor wat betreft het bereik ervan en de wijze waarop wettelijk is vastgelegd wat met behulp van het Burgerservicenummer mag gebeuren.  De gebruikers van het Burgerservicenummer bestaan uit overheidsorganen alsmede niet-overheidsorganen. Omdat het niet duidelijk is wat de criteria zijn om niet-overheidsorganen wel of niet toe te laten tot het gebruik van het Burgerservicenummer is besloten om de gebruikersaspecten niet in de definitie op te nemen.De oorspronkelijke naamgeving en definitie van dit gegevenselement conform de (authentieke) bron:Elementnaam:    BurgerservicenummerDefinitie:    Elk ingeschreven persoon heeft een BSN, een nummer dat de persoon uniek identificeert in alle overheidsadministraties.Norminstantie:    GBA",
+                    "pattern": "^[0-9]{9}$",
+                    "type": "string"
+                },
+                "Geboortedatum": {
+                    "description": "De datum van geboorte van een PERSOON.Bron: NEN 1888:2002 - Geboortedatum (overgenomen zoals in SGR)Opmerking:Deze datum staat gewoonlijk vermeld op de geboorteakte dan wel een ander brondocument.Een GEBOORTEDATUM behoort te worden vastgesteld in verband met zijn rechtsgeldige betekenis, in het bijzonder voor de instellingen die minimaal een SZ-WET uitvoeren.",
+                    "type": "string"
+                }
+            },
+            "required": [
+            ]
+        },
         "BeschikbaarheidWerk": {
             "additionalProperties": false,
             "properties": {
@@ -174,6 +201,45 @@
                         "$ref": "#/definitions/Referteperiode"
                     },
                     "type": "array"
+                }
+            },
+            "required": [
+            ]
+        },
+        "Betaald werk": {
+            "additionalProperties": false,
+            "properties": {
+                "Loonheffingsnummer": {
+                    "description": "Het loonheffingsnummer op de loonstrook van de persoon.Bron: GBI-Werkgroep Ontologie Inkomen",
+                    "pattern": "^-?[0-9]{1,}$",
+                    "type": "integer"
+                },
+                "PeriodiciteitUitbetalingLoon": {
+                    "description": "",
+                    "enum": [
+                        "niet van toepassing",
+                        "dag",
+                        "week",
+                        "2 weken",
+                        "4 weken (13 maanden)",
+                        "5 weken",
+                        "maand",
+                        "kwartaal",
+                        "jaar",
+                        "eenmalig"
+                    ],
+                    "type": "string"
+                },
+                "Secundaire inkomstencomponenten": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/Vakantiegeld"
+                        },
+                        {
+                            "$ref": "#/definitions/Heffingskorting"
+                        }
+                    ],
+                    "type": "object"
                 }
             },
             "required": [
@@ -287,6 +353,10 @@
         "Dienst": {
             "additionalProperties": false,
             "properties": {
+                "Begindatum": {
+                    "description": "n.t.b.",
+                    "type": "string"
+                },
                 "Besluit": {
                     "items": {
                         "$ref": "#/definitions/Besluit"
@@ -301,6 +371,10 @@
                     },
                     "minItems": 1,
                     "type": "array"
+                },
+                "Einddatum": {
+                    "description": "n.t.b.",
+                    "type": "string"
                 },
                 "Referteperiode": {
                     "items": {
@@ -332,6 +406,29 @@
             },
             "required": [
                 "Naam"
+            ]
+        },
+        "Heffingskorting": {
+            "additionalProperties": false,
+            "properties": {
+                "AlgemeneHeffingskorting": {
+                    "description": "Heffingskortingen zijn kortingen op de inkomstenbelasting en premie volksverzekeringen.Zie: belastingdienst.nl.",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                },
+                "InkomensafhankelijkeCombinatiekorting": {
+                    "description": "Heffingskortingen zijn kortingen op de inkomstenbelasting en premie volksverzekeringen.Zie: belastingdienst.nl.",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
             ]
         },
         "Huishouden": {
@@ -423,85 +520,6 @@
                 "CodeRelatieBewonerTotHuisvesting"
             ]
         },
-        "Identiteitsbewijs": {
-            "additionalProperties": false,
-            "properties": {
-                "CodeSoortIdentiteitsbewijs": {
-                    "description": "Code die het soort IDENTITEITSBEWIJS aangeeft, conform de Wet op de Identificatieplicht.",
-                    "enum": [
-                        "Nationaal paspoort",
-                        "Diplomatiek paspoort",
-                        "Dienstpaspoort",
-                        "Reisdocument voor vluchtelingen",
-                        "Reisdocument voor vreemdelingen",
-                        "Nooddocument",
-                        "Ander, door de minister van Justitie vastgesteld, reisdocument",
-                        "Europese identiteitskaart",
-                        "Vreemdelingendocument",
-                        "Nederlandse Identiteitskaart",
-                        "DigiD"
-                    ],
-                    "type": "string"
-                },
-                "CodeSoortVreemdelingendocument": {
-                    "description": "Code die het soort VREEMDELINGENDOCUMENT aangeeft.",
-                    "enum": [
-                        "Geen",
-                        "A-document",
-                        "B-document",
-                        "C-document",
-                        "D-document",
-                        "E-document",
-                        "F1-document",
-                        "F2-document",
-                        "F3-document",
-                        "W-document",
-                        "BuZa-document",
-                        "Document I",
-                        "Document II",
-                        "Document III",
-                        "Document IV",
-                        "EU/EUR-document"
-                    ],
-                    "type": "string"
-                },
-                "DatumEindeGeldigheidIdentiteitsbewijs": {
-                    "description": "De datum van de laatste dag waarop het IDENTITEITSBEWIJS geldig is.",
-                    "type": "string"
-                },
-                "DocumentnummerIdentiteitsbewijs": {
-                    "description": "De unieke aanduiding van het IDENTITEITSBEWIJS.",
-                    "type": "string"
-                },
-                "IndicatieArbeidToegestaan": {
-                    "description": "Code die aangeeft of blijkens het VREEMDELINGENDOCUMENT arbeid in loondienst is toegestaan.",
-                    "enum": [
-                        "Ja",
-                        "Nee"
-                    ],
-                    "type": "string"
-                },
-                "IndicatieTewerkstellingsvergunningVereist": {
-                    "description": "Code die aangeeft of blijkens het VREEMDELINGENDOCUMENT de (aanstaande) werkgever van CLIENT SUWI een tewerkstellingsvergunning nodig heeft om hem in dienst te nemen.",
-                    "enum": [
-                        "Ja",
-                        "Nee"
-                    ],
-                    "type": "string"
-                },
-                "IndicatieVerlengingAangevraagd": {
-                    "description": "Code die aangeeft of de CLIENT SUWI verlenging van het VREEMDELINGENDOCUMENT heeft aangevraagd, maar nog niet verkregen.",
-                    "enum": [
-                        "Ja",
-                        "Nee"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "CodeSoortIdentiteitsbewijs"
-            ]
-        },
         "IngangBijstandsuitkering": {
             "additionalProperties": false,
             "properties": {
@@ -539,69 +557,40 @@
                 }
             },
             "required": [
-                "StartdatumUitkering",
                 "DatumMeldingBijGemeente"
             ]
         },
-        "Inkomstencomponent": {
+        "Inkomstenverhouding": {
             "additionalProperties": false,
             "properties": {
-                "BijgevoegdBewijs": {
-                    "description": "Indicatie of bij dit inkomstencomponent een bewijs is toegevoegd",
-                    "enum": [
-                        "Ja",
-                        "Nee"
-                    ],
-                    "type": "string"
-                },
-                "BrutoNetto": {
-                    "description": "Geeft aan of de inkomsten geadministreerd in dit inkomstencomponent bruto of netto zijn.",
-                    "enum": [
-                        "Bruto",
-                        "Netto"
-                    ],
-                    "type": "string"
-                },
-                "Inkomsten": {
-                    "description": "Het geldbedrag waarop de boeking betrekking heeft geldig voor de periode in dit inkomstencomponent.",
-                    "pattern": "^-?[0-9]((;|,|\\.)[0-9]{2}|)$",
-                    "type": "number"
-                },
-                "Inkomstencomponenttype": {
-                    "description": "Het type van de abstracte inkomstencomponent (zie ook alle specialisatierelaties).",
-                    "enum": [
-                        "Alimentatie",
-                        "Ander inkomen",
-                        "Betaald werk",
-                        "Pensioen",
-                        "Studiefinanciering",
-                        "Uitkering",
-                        "Stage",
-                        "Hobby",
-                        "Eigen bedrijf",
-                        "Inkomstenvermindering",
-                        "Vergoeding",
-                        "Heffingskorting"
-                    ],
-                    "type": "string"
-                },
-                "LinkNaarBewijs": {
-                    "description": "Een link (URI) naar het bijgevoegde bewijs.",
-                    "type": "string"
-                },
                 "PeriodeEinddatum": {
-                    "description": "De einddatum van de periode waarop het geboekte bedrag in dit inkomstencomponent betrekking heeft.",
+                    "description": "De datum waarop de inkomstenverhouding eindigde.Als deze nog niet is geëindigd, is dit gegeven absent.",
                     "type": "string"
                 },
                 "PeriodeStartdatum": {
-                    "description": "De startdatum van de periode waarop het geboekte bedrag in dit inkomstencomponent betrekking heeft.",
+                    "description": "De datum waarop de inkomstenverhouding begon.",
                     "type": "string"
+                },
+                "PrimairInkomstencomponent": {
+                    "items": {
+                        "$ref": "#/definitions/PrimairInkomstencomponent"
+                    },
+                    "maxItems": 1,
+                    "type": "array"
+                },
+                "Werkgever": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/BekostigerPersoon"
+                        },
+                        {
+                            "$ref": "#/definitions/BekostigerOrganisatie"
+                        }
+                    ],
+                    "type": "object"
                 }
             },
             "required": [
-                "Inkomstencomponenttype",
-                "PeriodeStartdatum",
-                "PeriodeEinddatum"
             ]
         },
         "Kind": {
@@ -880,15 +869,6 @@
                     "minItems": 1,
                     "type": "array"
                 },
-                "Identiteitsbewijs": {
-                    "items": {
-                        "$ref": "#/definitions/Identiteitsbewijs"
-                    },
-                    "maxItems": 1,
-                    "minItems": 0,
-                    "type": "array",
-                    "uniqueItems": true
-                },
                 "Kinderen": {
                     "items": {
                         "$ref": "#/definitions/Ouder Kind"
@@ -926,12 +906,89 @@
                 "Geboortedatum"
             ]
         },
+        "PrimairInkomstencomponent": {
+            "additionalProperties": false,
+            "properties": {
+                "BijgevoegdBewijs": {
+                    "description": "Indicatie of bij dit inkomstencomponent een bewijs is toegevoegd",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                },
+                "BrutoNetto": {
+                    "description": "Geeft aan of de inkomsten geadministreerd in dit inkomstencomponent bruto of netto zijn.",
+                    "enum": [
+                        "Bruto",
+                        "Netto"
+                    ],
+                    "type": "string"
+                },
+                "Inkomsten": {
+                    "description": "Het geldbedrag waarop de boeking betrekking heeft geldig voor de periode in dit inkomstencomponent.",
+                    "pattern": "^-?[0-9]((;|,|\\.)[0-9]{2}|)$",
+                    "type": "number"
+                },
+                "InkomstencomponenttypeSpecifiekeGegevens": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Betaald werk"
+                        },
+                        {
+                            "$ref": "#/definitions/Uitkering"
+                        }
+                    ],
+                    "type": "object"
+                },
+                "LinkNaarBewijs": {
+                    "description": "Een link (URI) naar het bijgevoegde bewijs.",
+                    "type": "string"
+                },
+                "PeriodeEinddatum": {
+                    "description": "De einddatum van de periode waarop het geboekte bedrag in dit inkomstencomponent betrekking heeft.",
+                    "type": "string"
+                },
+                "PeriodeStartdatum": {
+                    "description": "De startdatum van de periode waarop het geboekte bedrag in dit inkomstencomponent betrekking heeft.",
+                    "type": "string"
+                },
+                "PrimairInkomstencomponenttype": {
+                    "description": "Het type van de abstracte primaire inkomstencomponent (zie ook alle specialisatierelaties).",
+                    "enum": [
+                        "Alimentatie",
+                        "Ander inkomen",
+                        "Betaald werk",
+                        "Pensioen",
+                        "Studiefinanciering",
+                        "Uitkering",
+                        "Stage",
+                        "Hobby",
+                        "Eigen bedrijf",
+                        "Inkomstenvermindering",
+                        "Vergoeding",
+                        "Heffingskorting"
+                    ],
+                    "type": "string"
+                },
+                "SecundaireInkomstencomponenten": {
+                    "items": {
+                        "$ref": "#/definitions/SecundairInkomstencomponent"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "PeriodeStartdatum",
+                "PeriodeEinddatum"
+            ]
+        },
         "Profiel": {
             "additionalProperties": false,
             "properties": {
-                "Inkomsten": {
+                "Inkomstenverhoudingen": {
                     "items": {
-                        "$ref": "#/definitions/Inkomstencomponent"
+                        "$ref": "#/definitions/Inkomstenverhouding"
                     },
                     "type": "array"
                 },
@@ -1035,10 +1092,6 @@
                     "description": "",
                     "type": "string"
                 },
-                "EinddatumOpname": {
-                    "description": "",
-                    "type": "string"
-                },
                 "OntvangstdatumBeslissingInstantie": {
                     "description": "",
                     "type": "string"
@@ -1064,10 +1117,6 @@
                 "SpecificatieBijzondereRedenLaterIngaanStartdatumAanvraag": {
                     "description": "",
                     "type": "string"
-                },
-                "StartdatumOpname": {
-                    "description": "",
-                    "type": "string"
                 }
             },
             "required": [
@@ -1082,6 +1131,33 @@
                 },
                 "Startdatum": {
                     "description": "De startdatum van de referteperiode",
+                    "type": "string"
+                }
+            },
+            "required": [
+            ]
+        },
+        "SecundairInkomstencomponent": {
+            "additionalProperties": false,
+            "properties": {
+                "Boekingsdatum": {
+                    "description": "De datum waarop het bedrag in dit inkomstencomponent is geboekt op een rekening van de klant.",
+                    "type": "string"
+                },
+                "Inkomsten": {
+                    "description": "Het geldbedrag waarop de boeking betrekking heeft geldig voor de periode in dit inkomstencomponent.",
+                    "pattern": "^-?[0-9]((;|,|\\.)[0-9]{2}|)$",
+                    "type": "number"
+                },
+                "SecundairInkomstencomponenttype": {
+                    "description": "Het type van de abstracte secundaire inkomstencomponent (zie ook alle specialisatierelaties).",
+                    "enum": [
+                        "Dertiende maand - eindejaarsuitkering",
+                        "Heffingskorting",
+                        "Inkomstenvermindering",
+                        "Vakantiegeld",
+                        "Vergoeding"
+                    ],
                     "type": "string"
                 }
             },
@@ -1176,6 +1252,57 @@
                 "Rekeninghouder"
             ]
         },
+        "Uitkering": {
+            "additionalProperties": false,
+            "properties": {
+                "Loonheffingskorting": {
+                    "description": "Indicatie of er wel/geen loonheffingskorting op de uitkering van toepassing is.",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                },
+                "ToeslagOpUitkering": {
+                    "description": "Indicatie of er wel/geen toeslag op de uitkering van toepassing is.",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                },
+                "UitkeringVerlaagdDoorBoete": {
+                    "description": "Indicatie of er wel/niet sprake is van een verlaagde utikering in verband met een boete.",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                },
+                "VakantiegeldJaarlijksOntvangen": {
+                    "description": "Indicatie of het vakantiegeld wel/niet jaarlijks wordt ontvangen.",
+                    "enum": [
+                        "Ja",
+                        "Nee"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+            ]
+        },
+        "Vakantiegeld": {
+            "additionalProperties": false,
+            "properties": {
+                "Inkomsten": {
+                    "description": "Het geldbedrag waarop de boeking betrekking heeft geldig voor de periode in dit inkomstencomponent.",
+                    "pattern": "^-?[0-9]((;|,|\\.)[0-9]{2}|)$",
+                    "type": "number"
+                }
+            },
+            "required": [
+            ]
+        },
         "Verblijfstitel": {
             "additionalProperties": false,
             "properties": {
@@ -1242,14 +1369,6 @@
         "Vermogenscomponent": {
             "additionalProperties": false,
             "properties": {
-                "Bankrekening": {
-                    "items": {
-                        "$ref": "#/definitions/BankrekeningVermogen"
-                    },
-                    "maxItems": 1,
-                    "minItems": 0,
-                    "type": "array"
-                },
                 "CodeSoortVermogenscomponent": {
                     "description": "",
                     "enum": [
@@ -1277,13 +1396,16 @@
                     ],
                     "type": "string"
                 },
-                "Motorvoertuig": {
-                    "items": {
-                        "$ref": "#/definitions/Motorvoertuig"
-                    },
-                    "maxItems": 1,
-                    "minItems": 0,
-                    "type": "array"
+                "VermogenscomponentSpecifiekeGegevens": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/Motorvoertuig"
+                        },
+                        {
+                            "$ref": "#/definitions/BankrekeningVermogen"
+                        }
+                    ],
+                    "type": "object"
                 },
                 "Waardepeiling": {
                     "items": {
