@@ -268,8 +268,6 @@
                 }
             },
             "required": [
-                "Burgerservicenummer",
-                "Geboortedatum"
             ]
         },
         "Contactgegevens": {
@@ -1233,6 +1231,7 @@
                         "43-Rechtmatig verblijf op aanwijzing Minister van Justitie, geen arbeid",
                         "44-Vw 2000 art. 8, onder m, Dublinclaimant, wacht op overdracht, rva, geen arbeid",
                         "45-Vw 2000 art.8, onder i, onderzoeker/student, verblijfsrecht in EU-land",
+                        "46-Vw2000 art 8, onder f en h, EU-richtl 2001/55, in proc art 28, arbeid loondienst",
                         "91-Vw 2000 art. 115, lid 4, vergunning onbepaalde tijd, arbeid vrij",
                         "92-Vw 2000 art. 115, lid 6, vergunning asiel bepaalde tijd, arbeid vrij",
                         "93-Vw 2000 art. 115, lid 2, verg. regulier bepaalde tijd, arbeid nader te bepalen",
@@ -1275,16 +1274,6 @@
             "properties": {
                 "Beschrijving": {
                     "description": "De beschrijving van de voorwaarde in leesbaar formaat",
-                    "type": "string"
-                },
-                "Brontype": {
-                    "description": "De bron van waaruit de gegevens afkomstig zijn (externe bron, opgave van klant of vaststelling van professional).",
-                    "enum": [
-                        "1-Klant",
-                        "2-Professional",
-                        "3-Register",
-                        "4-Externe bron"
-                    ],
                     "type": "string"
                 },
                 "Conclusie": {
