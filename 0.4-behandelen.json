@@ -171,6 +171,12 @@
                 "Naam": {
                     "description": "De feitelijke naam van de organisatorische eenheid.Bron: RGBZ2.0",
                     "type": "string"
+                },
+                "Rol": {
+                    "items": {
+                        "$ref": "#/definitions/Rol"
+                    },
+                    "type": "array"
                 }
             },
             "required": [
@@ -1227,15 +1233,15 @@
                     "minItems": 1,
                     "type": "array"
                 },
+                "Betrokkenen": {
+                    "items": {
+                        "$ref": "#/definitions/Betrokkene"
+                    },
+                    "type": "array"
+                },
                 "Identificatie": {
                     "description": "De unieke identificatie van de ZAAK binnen de organisatie die verantwoordelijk is voor de behandeling van de ZAAK.",
                     "type": "string"
-                },
-                "Rollen": {
-                    "items": {
-                        "$ref": "#/definitions/Rol"
-                    },
-                    "type": "array"
                 },
                 "Url": {
                     "description": "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.",
