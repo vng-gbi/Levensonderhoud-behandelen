@@ -77,12 +77,12 @@
                 "CodeFunctieAdres": {
                     "description": "De code die aangeeft wat de functie van het adres is, welke is gerelateerd aan de PERSOON of de ONDERNEMING/INSTELLING binnen een bepaalde periode.Norminstantie: SGR",
                     "enum": [
-                        "Afwijkend woonadres",
-                        "Briefadres (BRP)",
-                        "Correspondentieadres",
-                        "Loonaangifte adres",
-                        "Vestigingsadres",
-                        "Woonadres (BRP)"
+                        "A-Afwijkend woonadres",
+                        "B-Briefadres (BRP)",
+                        "C-Correspondentieadres",
+                        "L-Loonaangifte adres",
+                        "V-Vestigingsadres",
+                        "W-Woonadres (BRP)"
                     ],
                     "type": "string"
                 },
@@ -148,16 +148,16 @@
                 "indicatieLoonheffingskorting": {
                     "description": "Indicatie of er wel/geen loonheffingskorting op de uitkering van toepassing is.",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "IndicatieReserveringVT": {
                     "description": "Indicatie of vakantietoeslag (VT) over het inkomen gereserveerd wordt (indicatie = ja) of direct wordt uitbetaald (indicatie= nee). Zoals beschreven in Regeling Participatiewet, IOAW en IOAZ. https://wetten.overheid.nl/BWBR0015738/2025-01-01",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 }
@@ -170,6 +170,10 @@
             "properties": {
                 "Naam": {
                     "description": "De feitelijke naam van de organisatorische eenheid.Bron: RGBZ2.0",
+                    "type": "string"
+                },
+                "Omschrijving": {
+                    "description": "Een omschrijving van de organisatorische eenheid.Bron: RGBZ2.0",
                     "type": "string"
                 },
                 "Rol": {
@@ -188,9 +192,9 @@
                 "RolOrganisatie": {
                     "description": "Een aanduiding van de rol die de organisatie in de relatie tot de PERSOON heeft, Bijvoorbeeld Curator, Mentor, GemachtigdeBron: GBI - Werkgroep Ontologie",
                     "enum": [
-                        "Arbeidsrelatie",
-                        "Curator",
-                        "Bewindvoerder"
+                        "AR-Arbeidsrelatie",
+                        "C-Curator",
+                        "B-Bewindvoerder"
                     ],
                     "type": "string"
                 },
@@ -241,12 +245,12 @@
                 "CodeTypeTelefoonnummer": {
                     "description": "De code die het type TELEFOONNUMMER aangeeft.",
                     "enum": [
-                        "Privé",
-                        "Werk",
-                        "Vast",
-                        "Mobiel",
-                        "Fax",
-                        "Sateliet"
+                        "01-Privé",
+                        "02-Werk",
+                        "03-Vast",
+                        "04-Mobiel",
+                        "05-Fax",
+                        "06-Sateliet"
                     ],
                     "type": "string"
                 },
@@ -258,16 +262,16 @@
                 "IndicatieGeheimTelefoonnummer": {
                     "description": "De code die aangeeft of het TELEFOONNUMMER beperkt bekend wordt gemaakt door de telecomprovider.",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "IndicatieVoorkeurTelefoonnummer": {
                     "description": "De code die aangeeft of het TELEFOONNUMMER het voorkeur nummer is.",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
@@ -319,17 +323,17 @@
                 "Leefvorm": {
                     "description": "",
                     "enum": [
-                        "onbekend",
-                        "alleenstaande",
-                        "eenoudergezin",
-                        "samenwonend met partner met samenlevingscontract",
-                        "samenwonend met partner zonder samenlevingscontract",
-                        "samenwonend met inkomensafhankelijke kinderen",
-                        "samenwonend met (een) andere alleenstaande(n)",
-                        "samenwonend met huwelijks- of geregistreerd partner",
-                        "gehuwd/ongehuwd samenwonend",
-                        "anders",
-                        "niet gespecificeerd (niet gevoerd in de administratie)"
+                        "0-onbekend",
+                        "1-alleenstaande",
+                        "2-eenoudergezin",
+                        "3-samenwonend met partner met samenlevingscontract",
+                        "4-samenwonend met partner zonder samenlevingscontract",
+                        "5-samenwonend met inkomensafhankelijke kinderen",
+                        "6-samenwonend met (een) andere alleenstaande(n)",
+                        "8-samenwonend met huwelijks- of geregistreerd partner",
+                        "9-gehuwd/ongehuwd samenwonend",
+                        "98-anders",
+                        "99-niet gespecificeerd (niet gevoerd in de administratie)"
                     ],
                     "type": "string"
                 },
@@ -364,37 +368,37 @@
                 "CodeRelatieBewonerTotHuisvesting": {
                     "description": "Code die aangeeft in welke hoedanigheid de PERSOON gehuisvest is.Bron: SGR 16.0",
                     "enum": [
-                        "onbekend",
-                        "(mede)eigenaar",
-                        "huurder",
-                        "onderhuurder/kamerbewoner",
-                        "kostganger",
-                        "inwonend (bij ouders)",
-                        "gehuisvest in inrichting",
-                        "gehuisvest in instelling",
-                        "gehuisvest conform doelgroep Besluit adreslozen",
-                        "geen vaste woon- of verblijfplaats en niet behorend tot de doelgroep Besluit adreslozen",
-                        "anders",
-                        "niet van toepassing"
+                        "0-onbekend",
+                        "1-(mede)eigenaar",
+                        "2-huurder",
+                        "3-onderhuurder/kamerbewoner",
+                        "4-kostganger",
+                        "5-inwonend (bij ouders)",
+                        "6a-gehuisvest in inrichting",
+                        "6b-gehuisvest in instelling",
+                        "7-gehuisvest conform doelgroep Besluit adreslozen",
+                        "8-geen vaste woon- of verblijfplaats en niet behorend tot de doelgroep Besluit adreslozen",
+                        "9-anders",
+                        "99-niet van toepassing"
                     ],
                     "type": "string"
                 },
                 "CodeSoortHuisvesting": {
                     "description": "Toelichting op de woonsituatie van de PERSOON betreffende de huisvesting.Bron: SGR 16.0",
                     "enum": [
-                        "Onbekend",
-                        "Huis",
-                        "Woonwagen",
-                        "Woonschip",
-                        "Anders"
+                        "0-Onbekend",
+                        "1-Huis",
+                        "2-Woonwagen",
+                        "3-Woonschip",
+                        "9-Anders"
                     ],
                     "type": "string"
                 },
                 "IndicatieZelfstandigeWoonruimte": {
                     "description": "Code die aangeeft of de PERSOON in de woning zelfstandig beschikt over eigen woonruimte.Bron: SGR 16.0",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
@@ -419,8 +423,8 @@
                 "AfwijkendeIngangsdatum": {
                     "description": "De startdatum van de uitkering wijkt af van de melddatum.",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
@@ -509,21 +513,21 @@
                 "IndicatieKostendeler": {
                     "description": "",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "Relatietype": {
                     "description": "Type medebewonerBron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
-                        "Ouder",
-                        "Schoonouder",
-                        "Opa, oma, broer of zus",
-                        "Iemand die een kamer bij mij huurt",
-                        "Iemand waarvan ik een kamer huur",
-                        "Kostganger of kostgever",
-                        "Anders"
+                        "1-Ouder",
+                        "2-Schoonouder",
+                        "3-Opa, oma, broer of zus",
+                        "4-Iemand die een kamer bij mij huurt",
+                        "5-Iemand waarvan ik een kamer huur",
+                        "6-Kostganger of kostgever",
+                        "9-Anders"
                     ],
                     "type": "string"
                 }
@@ -612,33 +616,33 @@
                 "IndicatieCoOuder": {
                     "description": "Indicatie over of de wel/niet sprake is van co-ouderschap.Bron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
-                        "Ja",
-                        "Nee",
-                        "Niet van toepassing"
+                        "1-Ja",
+                        "2-Nee",
+                        "8-Niet van toepassing"
                     ],
                     "type": "string"
                 },
                 "IndicatieKinderbijslag": {
                     "description": "Indicatie over of er wel/geen kinderbijslag betaald dient te worden.Bron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "IndicatieOnderhoudsplicht": {
                     "description": "Indicatie over of er sprake is van een onderhoudsplicht van de persoon.Bron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "IndicatieThuiswonend": {
                     "description": "Indicatie over of de wel/geen sprake is van een thuiswonende relatie.Bron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
@@ -653,8 +657,8 @@
                 "OuderKindRelatietype": {
                     "description": "Type ouder kind relatieBron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
-                        "Ouder - Kind",
-                        "Pleegouder - Pleegkind"
+                        "OK-Ouder - Kind",
+                        "PP-Pleegouder - Pleegkind"
                     ],
                     "type": "string"
                 }
@@ -749,8 +753,8 @@
                 "BrutoNetto": {
                     "description": "Geeft aan of de inkomsten geadministreerd in dit inkomstencomponent bruto of netto zijn.",
                     "enum": [
-                        "Bruto",
-                        "Netto"
+                        "Br-Bruto",
+                        "Nt-Netto"
                     ],
                     "type": "string"
                 },
@@ -781,32 +785,32 @@
                 "PeriodiciteitUitbetaling": {
                     "description": "",
                     "enum": [
-                        "niet van toepassing",
-                        "dag",
-                        "week",
-                        "2 weken",
-                        "4 weken (13 maanden)",
-                        "5 weken",
-                        "maand",
-                        "kwartaal",
-                        "jaar",
-                        "eenmalig"
+                        "0-niet van toepassing",
+                        "1-dag",
+                        "2-week",
+                        "3-2 weken",
+                        "4-4 weken (13 maanden)",
+                        "5-5 weken",
+                        "6-maand",
+                        "7-kwartaal",
+                        "8-jaar",
+                        "9-eenmalig"
                     ],
                     "type": "string"
                 },
                 "PrimairInkomstencomponenttype": {
                     "description": "Het type van de abstracte primaire inkomstencomponent (zie ook alle specialisatierelaties).",
                     "enum": [
-                        "Alimentatie",
-                        "Ander inkomen",
-                        "Betaald werk",
-                        "Pensioen",
-                        "Studiefinanciering",
-                        "Uitkering",
-                        "Stage",
-                        "Hobby",
-                        "Eigen bedrijf",
-                        "Combinatiekorting"
+                        "1-Alimentatie",
+                        "2-Ander inkomen",
+                        "3-Betaald werk",
+                        "4-Pensioen",
+                        "5-Studiefinanciering",
+                        "6-Uitkering",
+                        "7-Stage",
+                        "8-Hobby",
+                        "9-Eigen bedrijf",
+                        "10-Combinatiekorting"
                     ],
                     "type": "string"
                 },
@@ -842,43 +846,43 @@
                 "OnvoldoendeInkomen": {
                     "description": "",
                     "enum": [
-                        "Ik heb geen werk meer",
-                        "Ik heb wel inkomsten, maar die zijn te laag",
-                        "Mijn uitkering (geen bijstandsuitkering) is stopgezet",
-                        "Mijn bijstandsuitkering is stopgezet",
-                        "Mijn eerdere bijstandsaanvraag is afgewezen of niet in behandeling genomen",
-                        "Mijn alimentatie is gestopt",
-                        "Mijn studiefinanciering is gestopt",
-                        "In staking bij werkgever of als groep uitgesloten voor werk",
-                        "Van spaargeld geleefd",
-                        "Vrij na een gevangenisstraf",
-                        "Andere reden"
+                        "1-Ik heb geen werk meer",
+                        "2-Ik heb wel inkomsten, maar die zijn te laag",
+                        "3-Mijn uitkering (geen bijstandsuitkering) is stopgezet",
+                        "4-Mijn bijstandsuitkering is stopgezet",
+                        "5-Mijn eerdere bijstandsaanvraag is afgewezen of niet in behandeling genomen",
+                        "6-Mijn alimentatie is gestopt",
+                        "7-Mijn studiefinanciering is gestopt",
+                        "8-In staking bij werkgever of als groep uitgesloten voor werk",
+                        "9-Van spaargeld geleefd",
+                        "10-Vrij na een gevangenisstraf",
+                        "11-Andere reden"
                     ],
                     "type": "string"
                 },
                 "Verblijfstatus": {
                     "description": "",
                     "enum": [
-                        "Ik heb een verblijfsvergunning gekregen",
-                        "Ik heb een verblijfsvergunning gekregen en vertrek uit een asielzoekerscentrum"
+                        "1-Ik heb een verblijfsvergunning gekregen",
+                        "2-Ik heb een verblijfsvergunning gekregen en vertrek uit een asielzoekerscentrum"
                     ],
                     "type": "string"
                 },
                 "WijzigingGezin": {
                     "description": "",
                     "enum": [
-                        "Ik had een eigen uitkering, maar doe nu een nieuwe aanvraag samen met mijn partner",
-                        "Mijn relatie is verbroken",
-                        "Mijn partner is overleden"
+                        "1-Ik had een eigen uitkering, maar doe nu een nieuwe aanvraag samen met mijn partner",
+                        "2-Mijn relatie is verbroken",
+                        "3-Mijn partner is overleden"
                     ],
                     "type": "string"
                 },
                 "Zelfstandige": {
                     "description": "",
                     "enum": [
-                        "Ik ben gestopt met mijn eigen bedrijf",
-                        "Ik heb een eigen bedrijf, maar onvoldoende inkomen",
-                        "In bezit van eigen bedrijf waarbij een tijdelijke sluiting door de gemeente is opgelegd"
+                        "1-Ik ben gestopt met mijn eigen bedrijf",
+                        "2-Ik heb een eigen bedrijf, maar onvoldoende inkomen",
+                        "3-In bezit van eigen bedrijf waarbij een tijdelijke sluiting door de gemeente is opgelegd"
                     ],
                     "type": "string"
                 }
@@ -900,18 +904,18 @@
                 "Redenafwijkendestartdatumtype": {
                     "description": "",
                     "enum": [
-                        "Wachten beslissing instantie",
-                        "Wachten DigiD",
-                        "Opname instelling",
-                        "Andere reden afwijkende startdatum"
+                        "1-Wachten beslissing instantie",
+                        "2-Wachten DigiD",
+                        "3-Opname instelling",
+                        "4-Andere reden afwijkende startdatum"
                     ],
                     "type": "string"
                 },
                 "RedenAfwijkingAanwezig": {
                     "description": "",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
@@ -949,12 +953,12 @@
                 "SecundairInkomstencomponenttype": {
                     "description": "Het type van de abstracte secundaire inkomstencomponent (zie ook alle specialisatierelaties).",
                     "enum": [
-                        "AVWB Budget",
-                        "Heffingskorting",
-                        "Inkomstenvermindering",
-                        "Vakantiegeld",
-                        "Vergoeding",
-                        "Toeslag"
+                        "1-AVWB Budget",
+                        "2-Heffingskorting",
+                        "3-Inkomstenvermindering",
+                        "4-Vakantiegeld",
+                        "5-Vergoeding",
+                        "6-Toeslag"
                     ],
                     "type": "string"
                 }
@@ -1037,11 +1041,11 @@
                 "SoortUitbetaling": {
                     "description": "De manier waarop de uitbetaling moet worden gedaan, hetzij aan de klant, zijn parter of gesplitst aan beide, hetzij aan een gemachtigde of een bewindvoerder.",
                     "enum": [
-                        "Klant",
-                        "Partner",
-                        "Gesplitst",
-                        "Gemachtigde",
-                        "Bewindvoerder"
+                        "01-Klant",
+                        "02-Partner",
+                        "03-Gesplitst",
+                        "04-Gemachtigde",
+                        "05-Bewindvoerder"
                     ],
                     "type": "string"
                 }
@@ -1055,84 +1059,84 @@
                 "indicatieBeslagOpUitkering": {
                     "description": "Indicatie of er wel/geen beslag op de uitkering wordt belegd.",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "indicatieLoonheffingskorting": {
                     "description": "Indicatie of er wel/geen loonheffingskorting op de uitkering van toepassing is.",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "IndicatieReserveringVT": {
                     "description": "Indicatie of vakantietoeslag (VT) over het inkomen gereserveerd wordt (indicatie = ja) of direct wordt uitbetaald (indicatie= nee). Zoals beschreven in Regeling Participatiewet, IOAW en IOAZ. https://wetten.overheid.nl/BWBR0015738/2025-01-01",
                     "enum": [
-                        "Ja",
-                        "Nee"
+                        "1-Ja",
+                        "2-Nee"
                     ],
                     "type": "string"
                 },
                 "InkomstensoortUitkering": {
                     "description": "De inkomstensoorten die vallen onder de categorie uitkering.",
                     "enum": [
-                        "(voormalige) Algemene Arbeidsongeschiktheidswet",
-                        "Algemene bijstand (regeling)",
-                        "Algemene Bijstandswet",
-                        "Algemene Kinderbijslagwet",
-                        "Algemene Nabestaandenwet",
-                        "Algemene Ouderdomswet",
-                        "AOW-OverbruggingsregelingOBR",
-                        "AOW-OverbruggingsregelingOR",
-                        "Algemene Wet Bijzondere Ziektekosten",
-                        "(voormalige) Algemene Weduwen en Wezenwet",
-                        "Bijzondere Bijstand",
-                        "Besluit Bijstandverlening Zelfstandigen",
-                        "Besluit Bijstandverlening Zelfstandigen – Bedrijfskapitaal",
-                        "Besluit Bijstandverlening Zelfstandigen – Bijzondere Bijstand",
-                        "Besluit Bijstandverlening Zelfstandigen – Levensonderhoud",
-                        "Coördinatiewet Sociale Verzekering",
-                        "Internationale wetten",
-                        "Wet Inkomensvoorziening Oudere en gedeeltelijk Arbeidsongeschikte Werkloze Werknemers",
-                        "Wet Inkomensvoorziening Oudere en gedeeltelijk Arbeidsongeschikte gewezen Zelfstandigen",
-                        "Wet Inkomensvoorziening Oudere Werklozen",
-                        "Regeling Inkomensvoorziening Volledig Arbeidsongeschikten",
-                        "Koninklijk besluit en aanverwante regelingen",
-                        "Kopjesregeling",
-                        "Wet werk en arbeidsondersteuning jonggehandicapten (Wet Wajong)",
-                        "Organisatiewet Sociale Verzekering",
-                        "pensioenwetten",
-                        "Participatiewet Wajong",
-                        "Wet op de (RE)integratie Arbeidsgehandicapten",
-                        "Remigratiewet",
-                        "(voormalige) Rijksgroepregeling Werkloze Werknemers",
-                        "Tijdelijke Regeling Inkomensgevolgen herbeoordeelde arbeidsongeschikten",
-                        "Toeslagenwet",
-                        "VUT-regeling",
-                        "Wet Arbeidsongeschiktheidsvoorziening Jonggehandicapten (WAJONG)",
-                        "Wet Arbeidsongeschiktheidsvoorziening Militairen",
-                        "Wet op de Arbeidsongeschiktheidsverzekering",
-                        "Wet Arbeidsongeschiktheidsverzekering Zelfstandigen",
-                        "Wet Arbeid en Zorg",
-                        "(Tijdelijke Wet) Beperking Inkomensgevolgen Arbeidsongeschiktheidscriteria",
-                        "Regeling Werkhervatting Gedeeltelijk Arbeidsgeschikten",
-                        "Werkhervattingskas",
-                        "Wet Werk en Inkomen naar Arbeidsvermogen",
-                        "Wet Investeren in Jongeren",
-                        "Wet Maatschappelijke Ondersteuning",
-                        "Wet Sociale Werkvooriening",
-                        "Wet Voorzieningen Gehandicapten",
-                        "Werkloosheidswet",
-                        "Wet Werk en Arbeidsondersteuning Jonggehandicapten (Wet Wajong)",
-                        "Wet Werk en Bijstand",
-                        "Werkloosheidswet Faillissementen",
-                        "Wet Werk en Inkomen Kunstenaars",
-                        "Ziekenfondswet",
-                        "Zorgverzekeringswet",
-                        "Ziektewet"
+                        "AAW-(voormalige) Algemene Arbeidsongeschiktheidswet",
+                        "AB-Algemene bijstand (regeling)",
+                        "ABW-Algemene Bijstandswet",
+                        "AKW-Algemene Kinderbijslagwet",
+                        "ANW-Algemene Nabestaandenwet",
+                        "AOW-Algemene Ouderdomswet",
+                        "AOW-OBR-AOW-OverbruggingsregelingOBR",
+                        "AOWOR-AOW-OverbruggingsregelingOR",
+                        "AWBZ-Algemene Wet Bijzondere Ziektekosten",
+                        "AWW-(voormalige) Algemene Weduwen en Wezenwet",
+                        "BB-Bijzondere Bijstand",
+                        "BBZ-Besluit Bijstandverlening Zelfstandigen",
+                        "BBZB-Besluit Bijstandverlening Zelfstandigen – Bedrijfskapitaal",
+                        "BBZBB-Besluit Bijstandverlening Zelfstandigen – Bijzondere Bijstand",
+                        "BBZL-Besluit Bijstandverlening Zelfstandigen – Levensonderhoud",
+                        "CSV-Coördinatiewet Sociale Verzekering",
+                        "INTW-Internationale wetten",
+                        "IOAW-Wet Inkomensvoorziening Oudere en gedeeltelijk Arbeidsongeschikte Werkloze Werknemers",
+                        "IOAZ-Wet Inkomensvoorziening Oudere en gedeeltelijk Arbeidsongeschikte gewezen Zelfstandigen",
+                        "IOW-Wet Inkomensvoorziening Oudere Werklozen",
+                        "IVA-Regeling Inkomensvoorziening Volledig Arbeidsongeschikten",
+                        "KB-Koninklijk besluit en aanverwante regelingen",
+                        "KOP-Kopjesregeling",
+                        "NWJ-Wet werk en arbeidsondersteuning jonggehandicapten (Wet Wajong)",
+                        "OSV-Organisatiewet Sociale Verzekering",
+                        "PVW-pensioenwetten",
+                        "PWJ-Participatiewet Wajong",
+                        "REA-Wet op de (RE)integratie Arbeidsgehandicapten",
+                        "RW-Remigratiewet",
+                        "RWW-(voormalige) Rijksgroepregeling Werkloze Werknemers",
+                        "TRI-Tijdelijke Regeling Inkomensgevolgen herbeoordeelde arbeidsongeschikten",
+                        "TW-Toeslagenwet",
+                        "VUT-VUT-regeling",
+                        "WAJ-Wet Arbeidsongeschiktheidsvoorziening Jonggehandicapten (WAJONG)",
+                        "WAMIL-Wet Arbeidsongeschiktheidsvoorziening Militairen",
+                        "WAO-Wet op de Arbeidsongeschiktheidsverzekering",
+                        "WAZ-Wet Arbeidsongeschiktheidsverzekering Zelfstandigen",
+                        "WAZO-Wet Arbeid en Zorg",
+                        "WBIA-(Tijdelijke Wet) Beperking Inkomensgevolgen Arbeidsongeschiktheidscriteria",
+                        "WGA-Regeling Werkhervatting Gedeeltelijk Arbeidsgeschikten",
+                        "WHK-Werkhervattingskas",
+                        "WIA-Wet Werk en Inkomen naar Arbeidsvermogen",
+                        "WIJ-Wet Investeren in Jongeren",
+                        "WMO-Wet Maatschappelijke Ondersteuning",
+                        "WSW-Wet Sociale Werkvooriening",
+                        "WVG-Wet Voorzieningen Gehandicapten",
+                        "WW-Werkloosheidswet",
+                        "WWAJ-Wet Werk en Arbeidsondersteuning Jonggehandicapten (Wet Wajong)",
+                        "WWB-Wet Werk en Bijstand",
+                        "WWF-Werkloosheidswet Faillissementen",
+                        "WWIK-Wet Werk en Inkomen Kunstenaars",
+                        "ZFW-Ziekenfondswet",
+                        "ZVW-Zorgverzekeringswet",
+                        "ZW-Ziektewet"
                     ],
                     "type": "string"
                 }
@@ -1146,49 +1150,49 @@
                 "CodeVerblijfstitel": {
                     "description": "Code die een aanduiding geeft van de juridische grondslag op basis waarvan een persoon als bedoeld in de Vreemdelingenwet in Nederland verblijft.Bron: SGR 16.0, gebaseerd op NEN 1888:2002 - Verblijfstitel.Tabel 56 - Verblijfstiteltabel (RVIG landelijke tabellen).Opmerking :  Omdat de NEN 1888 een definitie geeft van  Verblijfstitel  en niet van CODE VERBLIJFSTITEL is de inhoud van de SUWI definitie iets afwijkend vergeleken met de definitie van  verblijfstitel  in de NEN 1888.",
                     "enum": [
-                        "Onbekend",
-                        "Art. 9 van de Vreemdelingenwet",
-                        "Art. 10 van de Vreemdelingenwet",
-                        "Vergunning art. 9 Vw, zonder beperking, dan wel gerechtigd krachtens art. 10 Vw",
-                        "Vergunning art. 9 Vw, met beperking, die elke vorm arbeid in loondienst toestaat",
-                        "Vergunning art. 9 Vw, met beperking, die arbeid in loondienst niet toestaat",
-                        "Voorwaardelijke vergunning art. 9a Vw",
-                        "Benelux of EG richtl nrs 68/360/EEG, 73/148/EEG 75/34/EEG, verord nr 1251/70/EEG",
-                        "EG-richtlijnen nrs. 90/364/EEG, 90/365/EEG en 90/366/EEG",
-                        "Verzoek tot toelating als vluchteling, uitzetting blijft achterwege",
-                        "Gemeld bij VD, geen verzoek toelating als vluchteling, geen uitzetting",
-                        "Vergunning art. 9 Vw, met andere beperking dan hierboven",
-                        "Ander verdrag dan hierboven",
-                        "Vw 2000 art. 8, onder a, vergunning regulier bepaalde tijd, arbeid vrij",
-                        "Vw2000 art. 8, sub a, VVR bep tijd arbeid mits TWV, VVR bep tijd verblijf en arbeid",
-                        "Vw 2000 art. 8, onder a, vergunning regulier bepaalde tijd, arbeid specifiek",
-                        "Vw 2000 art. 8, onder a, vergunning regulier bepaalde tijd, geen arbeid",
-                        "Vw 2000 art. 8, sub b, verg. reg. onbep. tijd of langdurig ingez., arbeid vrij",
-                        "Vw 2000 art. 8, onder c, vergunning asiel bepaalde tijd, arbeid vrij",
-                        "Vw 2000 art. 8, sub d, verg. asiel onbep. tijd of langdurig ingez., arbeid vrij",
-                        "Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. actief, arbeid vrij",
-                        "Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. niet-actief, arbeid vrij",
-                        "Vw 2000 art. 8, onder e, toetsing aan het gemeenschapsrecht, arbeid vrij",
-                        "Vw 2000 art. 8, onder f en h, in procedure voor vergunning art. 14 Vw 2000",
-                        "Vw 2000 art. 8, onder f en h, in procedure voor vergunning art. 28 Vw 2000",
-                        "Vw 2000 art. 8, onder g en h, in procedure voortgezet verblijf, tijdige aanvr.",
-                        "Vw 2000 art. 8, onder g en h, in procedure voortgezet verblijf, ontijdige aanvr.",
-                        "Vw 2000 art. 8, onder l, Associatiebesluit 1/80 EEG/Turkije, arbeid specifiek",
-                        "Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. actief, arbeid specifiek",
-                        "Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. niet-actief, arbeid spec.",
-                        "Vw 2000 art. 8, onder e, toetsing aan het gemeenschapsrecht, arbeid specifiek",
-                        "Vw 2000 art. 8, onder m, in afwachting indiening asielaanvraag, geen arbeid",
-                        "Vw 2000 art. 8, onder e, gemeenschapsonderdaan duurzaam verblijf, arbeid vrij",
-                        "Rechtmatig verblijf Vw 2000 art. 8, onder e, is beëindigd",
-                        "Rechtmatig verblijf op grond van voorlopige maatregel EHRM, geen arbeid",
-                        "Rechtmatig verblijf op aanwijzing Minister van Justitie, geen arbeid",
-                        "Vw 2000 art. 8, onder m, Dublinclaimant, wacht op overdracht, rva, geen arbeid",
-                        "Vw 2000 art.8, onder i, onderzoeker/student, verblijfsrecht in EU-land",
-                        "Vw2000 art 8, onder f en h, EU-richtl 2001/55, in proc art 28, arbeid loondienst",
-                        "Vw 2000 art. 115, lid 4, vergunning onbepaalde tijd, arbeid vrij",
-                        "Vw 2000 art. 115, lid 6, vergunning asiel bepaalde tijd, arbeid vrij",
-                        "Vw 2000 art. 115, lid 2, verg. regulier bepaalde tijd, arbeid nader te bepalen",
-                        "geen verblijfstitel (meer)"
+                        "0-Onbekend",
+                        "9-Art. 9 van de Vreemdelingenwet",
+                        "10-Art. 10 van de Vreemdelingenwet",
+                        "11-Vergunning art. 9 Vw, zonder beperking, dan wel gerechtigd krachtens art. 10 Vw",
+                        "12-Vergunning art. 9 Vw, met beperking, die elke vorm arbeid in loondienst toestaat",
+                        "13-Vergunning art. 9 Vw, met beperking, die arbeid in loondienst niet toestaat",
+                        "14-Voorwaardelijke vergunning art. 9a Vw",
+                        "15-Benelux of EG richtl nrs 68/360/EEG, 73/148/EEG 75/34/EEG, verord nr 1251/70/EEG",
+                        "16-EG-richtlijnen nrs. 90/364/EEG, 90/365/EEG en 90/366/EEG",
+                        "17-Verzoek tot toelating als vluchteling, uitzetting blijft achterwege",
+                        "18-Gemeld bij VD, geen verzoek toelating als vluchteling, geen uitzetting",
+                        "19-Vergunning art. 9 Vw, met andere beperking dan hierboven",
+                        "20-Ander verdrag dan hierboven",
+                        "21-Vw 2000 art. 8, onder a, vergunning regulier bepaalde tijd, arbeid vrij",
+                        "22-Vw2000 art. 8, sub a, VVR bep tijd arbeid mits TWV, VVR bep tijd verblijf en arbeid",
+                        "23-Vw 2000 art. 8, onder a, vergunning regulier bepaalde tijd, arbeid specifiek",
+                        "24-Vw 2000 art. 8, onder a, vergunning regulier bepaalde tijd, geen arbeid",
+                        "25-Vw 2000 art. 8, sub b, verg. reg. onbep. tijd of langdurig ingez., arbeid vrij",
+                        "26-Vw 2000 art. 8, onder c, vergunning asiel bepaalde tijd, arbeid vrij",
+                        "27-Vw 2000 art. 8, sub d, verg. asiel onbep. tijd of langdurig ingez., arbeid vrij",
+                        "28-Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. actief, arbeid vrij",
+                        "29-Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. niet-actief, arbeid vrij",
+                        "30-Vw 2000 art. 8, onder e, toetsing aan het gemeenschapsrecht, arbeid vrij",
+                        "31-Vw 2000 art. 8, onder f en h, in procedure voor vergunning art. 14 Vw 2000",
+                        "32-Vw 2000 art. 8, onder f en h, in procedure voor vergunning art. 28 Vw 2000",
+                        "33-Vw 2000 art. 8, onder g en h, in procedure voortgezet verblijf, tijdige aanvr.",
+                        "34-Vw 2000 art. 8, onder g en h, in procedure voortgezet verblijf, ontijdige aanvr.",
+                        "35-Vw 2000 art. 8, onder l, Associatiebesluit 1/80 EEG/Turkije, arbeid specifiek",
+                        "36-Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. actief, arbeid specifiek",
+                        "37-Vw 2000 art. 8, onder e, gemeenschapsonderdaan econ. niet-actief, arbeid spec.",
+                        "38-Vw 2000 art. 8, onder e, toetsing aan het gemeenschapsrecht, arbeid specifiek",
+                        "39-Vw 2000 art. 8, onder m, in afwachting indiening asielaanvraag, geen arbeid",
+                        "40-Vw 2000 art. 8, onder e, gemeenschapsonderdaan duurzaam verblijf, arbeid vrij",
+                        "41-Rechtmatig verblijf Vw 2000 art. 8, onder e, is beëindigd",
+                        "42-Rechtmatig verblijf op grond van voorlopige maatregel EHRM, geen arbeid",
+                        "43-Rechtmatig verblijf op aanwijzing Minister van Justitie, geen arbeid",
+                        "44-Vw 2000 art. 8, onder m, Dublinclaimant, wacht op overdracht, rva, geen arbeid",
+                        "45-Vw 2000 art.8, onder i, onderzoeker/student, verblijfsrecht in EU-land",
+                        "46-Vw2000 art 8, onder f en h, EU-richtl 2001/55, in proc art 28, arbeid loondienst",
+                        "91-Vw 2000 art. 115, lid 4, vergunning onbepaalde tijd, arbeid vrij",
+                        "92-Vw 2000 art. 115, lid 6, vergunning asiel bepaalde tijd, arbeid vrij",
+                        "93-Vw 2000 art. 115, lid 2, verg. regulier bepaalde tijd, arbeid nader te bepalen",
+                        "98-geen verblijfstitel (meer)"
                     ],
                     "type": "string"
                 },
