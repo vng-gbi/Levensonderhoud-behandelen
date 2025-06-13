@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "definitions": {
-        "AanvraagALO": {
+        "LO-behandeld": {
             "additionalProperties": false,
             "properties": {
                 "Aanvraagdatum": {
@@ -1229,9 +1229,9 @@
         "Zaak": {
             "additionalProperties": false,
             "properties": {
-                "AanvraagALO": {
+                "LO-behandeld": {
                     "items": {
-                        "$ref": "#/definitions/AanvraagALO"
+                        "$ref": "#/definitions/LO-behandeld"
                     },
                     "maxItems": 1,
                     "minItems": 1,
