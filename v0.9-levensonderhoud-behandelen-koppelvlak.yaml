@@ -22,7 +22,7 @@ paths:
             type: string
       description: Opvragen van door de gemeente vastgestelde gegevens nodig zijn om een beslissing betreffende een aanvraag levensonderhoud kunnen te nemen.
       summary: Geeft gegevens die die door gemeente zijn vastgesteld tijdens het behandelen van de aanvraag en nodig zijn om een beslissing te kunnen nemen.
-      operationId: getAanvraagLevensonderhoudBehandeld
+      operationId: Get-LO-behandeld
       security:
        - apiAuth: []
       responses:
