@@ -142,7 +142,7 @@ components:
         description: >-
           Het loonheffingsnummer op de loonstrook van de persoon.Bron:
           GBI-Werkgroep Ontologie Inkomen
-        type: string
+        type: number
       Naam:
         description: 'De feitelijke naam van de organisatorische eenheid.Bron: RGBZ2.0'
         type: string
