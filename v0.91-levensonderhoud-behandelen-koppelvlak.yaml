@@ -142,7 +142,7 @@ components:
         description: >-
           Het loonheffingsnummer op de loonstrook van de persoon.Bron:
           GBI-Werkgroep Ontologie Inkomen
-        type: number
+        type: string
       Naam:
         description: 'De feitelijke naam van de organisatorische eenheid.Bron: RGBZ2.0'
         type: string
@@ -828,7 +828,7 @@ components:
           basisadministratie (GBA), zoals bedoeld als in artikel 50 van de Wet
           GBA.Norminstantie: GBA
         pattern: '^-?[0-9]{1,}$'
-        type: integer
+        type: number
       Bewindvoerder:
           $ref: '#/components/schemas/Bewindvoerder'
       Burgerservicenummer:
