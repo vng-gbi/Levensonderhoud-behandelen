@@ -87,7 +87,7 @@
                         "$ref": "#/components/schemas/Dienst"
                     }
                 }
-            },
+            }
         },
         "BetaaldWerk": {
             "additionalProperties": false,
@@ -237,8 +237,7 @@
                     "type": "string"
                 }
             },
-            "required": [
-            ]
+            "required": []
         },
         "Dienst": {
             "additionalProperties": false,
@@ -302,7 +301,7 @@
                 }
             },
             "required": [
-				"Aanvrager"
+                "Aanvrager"
             ]
         },
         "Huisvesting": {
@@ -428,7 +427,7 @@
             },
             "required": [
                 "PeriodeStartdatum",
-				"PrimairInkomstencomponent"
+                "PrimairInkomstencomponent"
             ]
         },
         "Kind": {
@@ -492,8 +491,8 @@
                 "Aanvraagid",
                 "CodeOntvangendeGemeente",
                 "Aanvraagdatum",
-				"Huishouding",
-				"IngangBijstandsuitkering"
+                "Huishouding",
+                "IngangBijstandsuitkering"
             ]
         },
         "Medebewoner": {
@@ -541,7 +540,7 @@
             "required": [
                 "Relatietype",
                 "IndicatieKostendeler",
-				"Bewoner"
+                "Bewoner"
             ]
         },
         "NederlandsPostbusadres": {
@@ -673,7 +672,7 @@
                 "IndicatieCoOuder",
                 "IndicatieKinderbijslag",
                 "IndicatieOnderhoudsplicht",
-				"Kind"
+                "Kind"
             ]
         },
         "Partner": {
@@ -854,7 +853,7 @@
                         "$ref": "#/components/schemas/Inkomstenverhouding"
                     }
                 }
-            },
+            }
         },
         "RedenAanvraagLevensonderhoud": {
             "additionalProperties": false,
@@ -922,7 +921,7 @@
                     ],
                     "type": "string"
                 }
-            },
+            }
         },
         "RedenAfwijkendeStartdatum": {
             "additionalProperties": false,
@@ -1043,7 +1042,7 @@
                     "description": "De naam van een woonplaats in het buitenland.Norminstantie: UGRBron: SGR 16.0Opmerking:Inkortingsregels:Als een WOONPLAATSNAAM BUITENLAND langer is dan 24 posities, moet de eerste inkortingsregel worden toegepast. Blijkt na toepassing daarvan de WOONPLAATSNAAM BUITENLAND nog steeds de 24 posities te overschrijden, dan treedt de tweede inkortingsregel in werking, en zo vervolgend totdat het aantal posities nog ten hoogste 24 bedraagt of alle inkortingsregels zijn gehanteerd. Tenzij anders vermeld, worden de inkortingsregels van rechts beginnend toegepast.Inkortingsregel 1.Verwijder leestekens uit de WOONPLAATSNAAM BUITENLAND.Inkortingsregel 2.Kort in de WOONPLAATSNAAM BUITENLAND, naar eigen inzicht, de tussenvoegsels in.Inkortingsregel 3.Kort het eerste bijvoeglijk naamwoord, en indien nodig de daarop volgende bijvoeglijke naamwoorden, van een samengestelde WOONPLAATSNAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 4.Kort het eerste woord na de tussenvoegsel, en indien nodig de daaropvolgende woorden, van een samengestelde WOONPLAATSNAAM BUITENLAND in tot de eerste letter van het woord, tenzij het betreffende woord al een inkorting is.Inkortingsregel 5.Vraag advies aan degene, die WOONPLAATSNAAM BUITENLAND verstrekt.",
                     "type": "string"
                 }
-            },
+            }
         },
         "UitbetalingUitkering": {
             "additionalProperties": false,
@@ -1182,7 +1181,7 @@
                     ],
                     "type": "string"
                 }
-            },
+            }
         },
         "Verblijfstitel": {
             "additionalProperties": false,
@@ -1246,7 +1245,7 @@
                     "format": "date",
                     "type": "string"
                 }
-            },
+            }
         },
         "Vestiging": {
             "additionalProperties": false,
@@ -1296,7 +1295,7 @@
             },
             "required": [
                 "Identificatie",
-				"LO-behandeld"
+                "LO-behandeld"
             ]
         }
     },
