@@ -352,7 +352,7 @@
                     "type": "string"
                 },
                 "IndicatieHuur": {
-                    "description": "Indicatie of sprake is van geen huur, hoge huur of commerciele huur.",
+                    "description": "Indicatie of sprake is van geen huur, lage huur of commerciele huur.",
                     "enum": [
                         "1",
                         "2",
