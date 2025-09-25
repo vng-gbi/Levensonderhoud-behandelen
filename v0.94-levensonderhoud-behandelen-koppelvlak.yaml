@@ -109,33 +109,46 @@ components:
       type: string
       minLength: 1
   Adreshouding:
-      additionalProperties: false
-      properties:
-        Adres:
-          oneOf:
-            - $ref: '#/components/schemas/NederlandsStraatadres'
-            - $ref: '#/components/schemas/NederlandsPostbusadres'
-            - $ref: '#/components/schemas/StraatadresBuitenland'
-          type: object
-        CodeFunctieAdres:
-          description: >-
-            De code die aangeeft wat de functie van het adres is, welke is
-            gerelateerd aan de PERSOON of de ONDERNEMING/INSTELLING binnen een
-            bepaalde periode.Norminstantie: SGR
-          enum:
-            - A
-            - B
-            - C
-            - L
-            - V
-            - W
-          type: string
-        Huisvesting:
-          items:
-            $ref: '#/components/schemas/Huisvesting'
-      required:
-        - CodeFunctieAdres
-        - Adres
+    additionalProperties: false
+    properties:
+      Adres:
+        oneOf:
+          - $ref: '#/components/schemas/NederlandsStraatadres'
+          - $ref: '#/components/schemas/NederlandsPostbusadres'
+          - $ref: '#/components/schemas/StraatadresBuitenland'
+        type: object
+      CodeFunctieAdres:
+        description: >-
+          De code die aangeeft wat de functie van het adres is, welke is
+          gerelateerd aan de PERSOON of de ONDERNEMING/INSTELLING binnen een
+          bepaalde periode.Norminstantie: SGR
+        enum:
+          - A
+          - B
+          - C
+          - L
+          - V
+          - W
+        type: string
+      Huisvesting:
+        items:
+          $ref: '#/components/schemas/Huisvesting'
+    required:
+      - CodeFunctieAdres
+      - Adres
+  Alimentatie:
+    additionalProperties: false
+    properties:
+      InkomstensoortAlimentatie:
+        description: De inkomstensoorten die vallen onder de categorie alimentatie.
+        enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+        type: string
+    required:
+      - InkomstensoortAlimentatie
   BekostigerOrganisatie:
     additionalProperties: false
     properties:
@@ -874,6 +887,23 @@ components:
         type: string
     required:
       - PartnerRelatietype
+  Pensioen:
+    additionalProperties: false
+    properties:
+      InkomstensoortPensioen:
+        description: >-
+          De inkomstensoorten die vallen onder de categorie pensioen.Bron:
+          GBI-Werkgroep Ontologie Inkomen
+        enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+        type: string
+    required:
+      - InkomstensoortPensioen
   Persoon:
     additionalProperties: false
     properties:
@@ -973,6 +1003,8 @@ components:
         oneOf:
           - $ref: '#/components/schemas/BetaaldWerk'
           - $ref: '#/components/schemas/Uitkering'
+          - $ref: '#/components/schemas/Pensioen'
+          - $ref: '#/components/schemas/Alimentatie'
         type: object
       PeriodeEinddatum:
         description: >-
