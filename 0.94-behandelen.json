@@ -255,8 +255,8 @@
                     "type": "string"
                 }
             },
-            "required": [
-            ]
+            "required": []
+			 
         },
         "Dienst": {
             "additionalProperties": false,
@@ -739,6 +739,22 @@
         "Pensioen": {
             "additionalProperties": false,
             "properties": {
+                "indicatieLoonheffingskorting": {
+                    "description": "Indicatie of er wel/geen loonheffingskorting toe is gepast.Bron: GBI-Werkgroep Ontologie Inkomen",
+                    "enum": [
+                        "1",
+                        "2"
+                    ],
+                    "type": "string"
+                },
+                "IndicatieReserveringVT": {
+                    "description": "Indicatie of vakantietoeslag (VT) over het inkomen gereserveerd wordt (indicatie = ja) of direct wordt uitbetaald (indicatie= nee). Zoals beschreven in Regeling Participatiewet, IOAW en IOAZ. https://wetten.overheid.nl/BWBR0015738/2025-01-01",
+                    "enum": [
+                        "1",
+                        "2"
+                    ],
+                    "type": "string"
+                },												 
                 "InkomstensoortPensioen": {
                     "description": "De inkomstensoorten die vallen onder de categorie pensioen.Bron: GBI-Werkgroep Ontologie Inkomen",
                     "enum": [
