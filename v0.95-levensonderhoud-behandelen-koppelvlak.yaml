@@ -146,6 +146,31 @@ components:
         type: string
     required:
       - InkomstensoortAlimentatie
+  AnderInkomen:
+    additionalProperties: false
+    properties:
+      BeschrijvingAnderInkomen:
+        description: >-
+          Beschrijving van de inkomsten uit ander inkomen en waarmee deze
+          inkomsten gegenereerd worden.
+        type: string
+      Categorie:
+        description: Het soort ander inkomen.
+        enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+          - '9'
+          - '10'
+        type: string
+    required:
+      - Categorie
   BekostigerOrganisatie:
     additionalProperties: false
     properties:
@@ -1020,8 +1045,7 @@ components:
           - $ref: '#/components/schemas/Uitkering'
           - $ref: '#/components/schemas/Pensioen'
           - $ref: '#/components/schemas/Alimentatie'
-        type: object
-      PeriodeEinddatum:
+          - $ref: '#/components/schemas/AnderInkomen'
         description: >-
           De einddatum van de periode waarop het geboekte bedrag in dit
           inkomstencomponent betrekking heeft.
@@ -1587,10 +1611,3 @@ components:
     required:
       - Identificatie
       - LOBehandeld
-
-
-
-
-
-
-
