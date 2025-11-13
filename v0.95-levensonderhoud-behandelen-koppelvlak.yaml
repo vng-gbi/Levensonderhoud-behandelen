@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Levensonderhoud Behandelen
-  version: '0.94'
+  version: '0.95'
   description: Opvragen van door de gemeente vastgestelde gegevens die nodig zijn om een beslissing betreffende een aanvraag levensonderhoud te kunnen nemen.
   contact:
     name: Jan Brinkkemper
