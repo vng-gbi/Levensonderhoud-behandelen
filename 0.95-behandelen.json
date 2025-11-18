@@ -129,7 +129,10 @@
                         "$ref": "#/components/schemas/Dienst"
                     }
                 }
-            }
+            },
+            "required": [
+                "Dienst"
+            ]
         },
         "BetaaldWerk": {
             "additionalProperties": false,
@@ -198,7 +201,8 @@
                 }
             },
             "required": [
-                "RolOrganisatie"
+                "RolOrganisatie",
+                "Vestiging"
             ]
         },
         "Bewoner": {
@@ -549,7 +553,8 @@
                 "CodeOntvangendeGemeente",
                 "Aanvraagdatum",
                 "Huishouding",
-                "IngangBijstandsuitkering"
+                "IngangBijstandsuitkering",
+                "RedenAanvraagLevensonderhoud"
             ]
         },
         "Medebewoner": {
@@ -829,6 +834,11 @@
                     "format": "date",
                     "type": "string"
                 },
+                "Huisvesting": {
+                    "items": {
+                        "$ref": "#/components/schemas/Huisvesting"
+                    }
+                },
                 "Kinderen": {
                     "items": {
                         "$ref": "#/components/schemas/OuderKind"
@@ -861,7 +871,8 @@
             },
             "required": [
                 "Burgerservicenummer",
-                "Geboortedatum"
+                "Geboortedatum",
+                "Huisvesting"
             ]
         },
         "PrimairInkomstencomponent": {

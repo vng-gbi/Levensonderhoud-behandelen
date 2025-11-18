@@ -233,6 +233,8 @@ components:
       Dienst:
         items:
           $ref: '#/components/schemas/Dienst'
+    required:
+      - Dienst
   BetaaldWerk:
     additionalProperties: false
     properties:
@@ -291,6 +293,7 @@ components:
           $ref: '#/components/schemas/Vestiging'
     required:
       - RolOrganisatie
+      - Vestiging
   Bewoner:
     additionalProperties: false
     properties:
@@ -638,6 +641,7 @@ components:
       - Aanvraagdatum
       - Huishouding
       - IngangBijstandsuitkering
+      - RedenAanvraagLevensonderhoud
   Medebewoner:
     additionalProperties: false
     properties:
@@ -1000,6 +1004,9 @@ components:
           instellingen die minimaal een SZ-WET uitvoeren.
         format: date
         type: string
+      Huisvesting:
+        items:
+          $ref: '#/components/schemas/Huisvesting'
       Kinderen:
         items:
           $ref: '#/components/schemas/OuderKind'
@@ -1022,6 +1029,7 @@ components:
     required:
       - Burgerservicenummer
       - Geboortedatum
+      - Huisvesting
   PrimairInkomstencomponent:
     additionalProperties: false
     properties:
@@ -1046,6 +1054,8 @@ components:
           - $ref: '#/components/schemas/Pensioen'
           - $ref: '#/components/schemas/Alimentatie'
           - $ref: '#/components/schemas/AnderInkomen'
+        type: object
+      PeriodeEinddatum:
         description: >-
           De einddatum van de periode waarop het geboekte bedrag in dit
           inkomstencomponent betrekking heeft.
