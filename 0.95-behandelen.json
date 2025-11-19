@@ -366,17 +366,6 @@
                     ],
                     "type": "string"
                 },
-                "CodeSoortHuisvesting": {
-                    "description": "Toelichting op de woonsituatie van de PERSOON betreffende de huisvesting.Bron: SGR 16.0",
-                    "enum": [
-                        "0",
-                        "1",
-                        "2",
-                        "3",
-                        "9"
-                    ],
-                    "type": "string"
-                },
                 "IndicatieHuur": {
                     "description": "Indicatie of sprake is van geen huur, lage huur of commerciele huur.",
                     "enum": [
@@ -421,7 +410,6 @@
             },
             "required": [
                 "IndicatieZelfstandigeWoonruimte",
-                "CodeSoortHuisvesting",
                 "CodeRelatieBewonerTotHuisvesting"
             ]
         },
