@@ -231,8 +231,7 @@ components:
     additionalProperties: false
     properties:
       Dienst:
-        items:
-          $ref: '#/components/schemas/Dienst'
+        $ref: '#/components/schemas/Dienst'
     required:
       - Dienst
   BetaaldWerk:
@@ -289,8 +288,7 @@ components:
           - B
         type: string
       Vestiging:
-        items:
-          $ref: '#/components/schemas/Vestiging'
+        $ref: '#/components/schemas/Vestiging'
     required:
       - RolOrganisatie
       - Vestiging
@@ -408,8 +406,7 @@ components:
     additionalProperties: false
     properties:
       Aanvrager:
-        items:
-          $ref: '#/components/schemas/Persoon'
+        $ref: '#/components/schemas/Persoon'
       InAanmerkingTeNemenVermogen:
         description: >-
           Totaal van het in aanmerking te nemen vermogen van leden gezamenlijke
@@ -428,11 +425,9 @@ components:
           - '6'
         type: string
       Medeaanvrager:
-        items:
-          $ref: '#/components/schemas/Persoon'
+        $ref: '#/components/schemas/Persoon'
       UitbetalingUitkering:
-        items:
-          $ref: '#/components/schemas/UitbetalingUitkering'
+        $ref: '#/components/schemas/UitbetalingUitkering'
     required:
       - Aanvrager
   Huisvesting:
@@ -523,8 +518,7 @@ components:
         format: date
         type: string
       RedenAfwijkendestartdatum:
-        items:
-          $ref: '#/components/schemas/RedenAfwijkendeStartdatum'
+        $ref: '#/components/schemas/RedenAfwijkendeStartdatum'
     required:
       - DatumMeldingBijGemeente
   Inkomstenverhouding:
@@ -546,8 +540,7 @@ components:
         format: date
         type: string
       PrimairInkomstencomponent:
-        items:
-          $ref: '#/components/schemas/PrimairInkomstencomponent'
+        $ref: '#/components/schemas/PrimairInkomstencomponent'
     required:
       - PeriodeStartdatum
       - PrimairInkomstencomponent
@@ -609,20 +602,16 @@ components:
           ^(\\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\\}{0,1})$
         type: string
       Besluit:
-        items:
-          $ref: '#/components/schemas/Besluit'
+        $ref: '#/components/schemas/Besluit'
       CodeOntvangendeGemeente:
         description: 'De code van de gemeente, die de aanvraag ontvangt en verwerkt.'
         type: string
       Huishouding:
-        items:
-          $ref: '#/components/schemas/Huishouding'
+        $ref: '#/components/schemas/Huishouding'
       IngangBijstandsuitkering:
-        items:
-          $ref: '#/components/schemas/IngangBijstandsuitkering'
+        $ref: '#/components/schemas/IngangBijstandsuitkering'
       RedenAanvraagLevensonderhoud:
-        items:
-          $ref: '#/components/schemas/RedenAanvraagLevensonderhoud'
+        $ref: '#/components/schemas/RedenAanvraagLevensonderhoud'
     required:
       - Aanvraagid
       - CodeOntvangendeGemeente
@@ -634,8 +623,7 @@ components:
     additionalProperties: false
     properties:
       Bewoner:
-        items:
-          $ref: '#/components/schemas/Bewoner'
+        $ref: '#/components/schemas/Bewoner'
       IndicatieKostendeler:
         description: ''
         enum:
@@ -873,8 +861,7 @@ components:
           - '2'
         type: string
       Kind:
-        items:
-          $ref: '#/components/schemas/Kind'
+        $ref: '#/components/schemas/Kind'
       OuderKindRelatietype:
         description: 'Type ouder kind relatieBron: GBI-Werkgroep Ontologie Inkomen'
         enum:
@@ -952,8 +939,7 @@ components:
         pattern: '^[12]\d{9}$'
         type: string
       Bewindvoerder:
-        items:
-          $ref: '#/components/schemas/Bewindvoerder'
+        $ref: '#/components/schemas/Bewindvoerder'
       Burgerservicenummer:
         description: >-
           Een uniek identificerend nummer van een PERSOON, die ingeschreven
@@ -980,8 +966,7 @@ components:
         pattern: '^[0-9]{9}$'
         type: string
       Contactgegevens:
-        items:
-          $ref: '#/components/schemas/Contactgegevens'
+        $ref: '#/components/schemas/Contactgegevens'
       Geboortedatum:
         description: >-
           De datum van geboorte van een PERSOON.Bron: NEN 1888:2002 -
@@ -993,8 +978,7 @@ components:
         format: date
         type: string
       Huisvesting:
-        items:
-          $ref: '#/components/schemas/Huisvesting'
+        $ref: '#/components/schemas/Huisvesting'
       Kinderen:
         items:
           $ref: '#/components/schemas/OuderKind'
@@ -1006,14 +990,11 @@ components:
         minItems: 0
         type: array
       Partner:
-        items:
-          $ref: '#/components/schemas/Partner'
+        $ref: '#/components/schemas/Partner'
       Profiel:
-        items:
-          $ref: '#/components/schemas/Profiel'
+        $ref: '#/components/schemas/Profiel'
       Verblijfstitel:
-        items:
-          $ref: '#/components/schemas/Verblijfstitel'
+        $ref: '#/components/schemas/Verblijfstitel'
     required:
       - Burgerservicenummer
       - Geboortedatum
@@ -1592,8 +1573,7 @@ components:
           verantwoordelijk is voor de behandeling van de ZAAK.
         type: string
       LOBehandeld:
-        items:
-          $ref: '#/components/schemas/LOBehandeld'
+        $ref: '#/components/schemas/LOBehandeld'
       Url:
         description: >-
           URL-referentie naar dit object. Dit is de unieke identificatie en

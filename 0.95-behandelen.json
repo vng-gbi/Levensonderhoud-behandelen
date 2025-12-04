@@ -125,9 +125,7 @@
             "additionalProperties": false,
             "properties": {
                 "Dienst": {
-                    "items": {
-                        "$ref": "#/components/schemas/Dienst"
-                    }
+                    "$ref": "#/components/schemas/Dienst"
                 }
             },
             "required": [
@@ -195,9 +193,7 @@
                     "type": "string"
                 },
                 "Vestiging": {
-                    "items": {
-                        "$ref": "#/components/schemas/Vestiging"
-                    }
+                    "$ref": "#/components/schemas/Vestiging"
                 }
             },
             "required": [
@@ -307,9 +303,7 @@
             "additionalProperties": false,
             "properties": {
                 "Aanvrager": {
-                    "items": {
-                        "$ref": "#/components/schemas/Persoon"
-                    }
+                    "$ref": "#/components/schemas/Persoon"
                 },
                 "InAanmerkingTeNemenVermogen": {
                     "description": "Totaal van het in aanmerking te nemen vermogen van leden gezamenlijke huishouding plus de vermogens van de ten laste komende kinderen die op zelfde adres wonen.",
@@ -329,14 +323,10 @@
                     "type": "string"
                 },
                 "Medeaanvrager": {
-                    "items": {
-                        "$ref": "#/components/schemas/Persoon"
-                    }
+                    "$ref": "#/components/schemas/Persoon"
                 },
                 "UitbetalingUitkering": {
-                    "items": {
-                        "$ref": "#/components/schemas/UitbetalingUitkering"
-                    }
+                    "$ref": "#/components/schemas/UitbetalingUitkering"
                 }
             },
             "required": [
@@ -435,9 +425,7 @@
                     "type": "string"
                 },
                 "RedenAfwijkendestartdatum": {
-                    "items": {
-                        "$ref": "#/components/schemas/RedenAfwijkendeStartdatum"
-                    }
+                    "$ref": "#/components/schemas/RedenAfwijkendeStartdatum"
                 }
             },
             "required": [
@@ -469,9 +457,7 @@
                     "type": "string"
                 },
                 "PrimairInkomstencomponent": {
-                    "items": {
-                        "$ref": "#/components/schemas/PrimairInkomstencomponent"
-                    }
+                    "$ref": "#/components/schemas/PrimairInkomstencomponent"
                 }
             },
             "required": [
@@ -512,28 +498,20 @@
                     "type": "string"
                 },
                 "Besluit": {
-                    "items": {
-                        "$ref": "#/components/schemas/Besluit"
-                    }
+                    "$ref": "#/components/schemas/Besluit"
                 },
                 "CodeOntvangendeGemeente": {
                     "description": "De code van de gemeente, die de aanvraag ontvangt en verwerkt.",
                     "type": "string"
                 },
                 "Huishouding": {
-                    "items": {
-                        "$ref": "#/components/schemas/Huishouding"
-                    }
+                    "$ref": "#/components/schemas/Huishouding"
                 },
                 "IngangBijstandsuitkering": {
-                    "items": {
-                        "$ref": "#/components/schemas/IngangBijstandsuitkering"
-                    }
+                    "$ref": "#/components/schemas/IngangBijstandsuitkering"
                 },
                 "RedenAanvraagLevensonderhoud": {
-                    "items": {
-                        "$ref": "#/components/schemas/RedenAanvraagLevensonderhoud"
-                    }
+                    "$ref": "#/components/schemas/RedenAanvraagLevensonderhoud"
                 }
             },
             "required": [
@@ -549,9 +527,7 @@
             "additionalProperties": false,
             "properties": {
                 "Bewoner": {
-                    "items": {
-                        "$ref": "#/components/schemas/Bewoner"
-                    }
+                    "$ref": "#/components/schemas/Bewoner"
                 },
                 "IndicatieKostendeler": {
                     "description": "",
@@ -711,9 +687,7 @@
                     "type": "string"
                 },
                 "Kind": {
-                    "items": {
-                        "$ref": "#/components/schemas/Kind"
-                    }
+                    "$ref": "#/components/schemas/Kind"
                 },
                 "OuderKindRelatietype": {
                     "description": "Type ouder kind relatieBron: GBI-Werkgroep Ontologie Inkomen",
@@ -803,9 +777,7 @@
                     "type": "string"
                 },
                 "Bewindvoerder": {
-                    "items": {
-                        "$ref": "#/components/schemas/Bewindvoerder"
-                    }
+                    "$ref": "#/components/schemas/Bewindvoerder"
                 },
                 "Burgerservicenummer": {
                     "description": "Een uniek identificerend nummer van een PERSOON, die ingeschreven staat in de Gemeentelijke Basisadministratie Persoonsgegevens (GBA) of de Registratie Niet-ingezetenen (RNI).Bron: SGROpmerking:Elk nummer moet voldoen aan de bij de voorwaarden beschreven proef.Voorwaarden waarde BSN:  Indien het nummer per cijfer wordt aangeduid als (s0 s1 s2 s3 s4 s5 s6 s7 s8), dan is de volgende voorwaarde te controleren: (9 x s0) + (8 x s1) + (7 x s2) + (6 x s3) + (5 x s4) + (4 x s5) + (3 x s6) + (2 x s7) - (1 x s8) is deelbaar door 11Toelichting:  Het Burgerservicenummer onderscheidt zich van het Sofi-nummer voornamelijk voor wat betreft het bereik ervan en de wijze waarop wettelijk is vastgelegd wat met behulp van het Burgerservicenummer mag gebeuren.  De gebruikers van het Burgerservicenummer bestaan uit overheidsorganen alsmede niet-overheidsorganen. Omdat het niet duidelijk is wat de criteria zijn om niet-overheidsorganen wel of niet toe te laten tot het gebruik van het Burgerservicenummer is besloten om de gebruikersaspecten niet in de definitie op te nemen.De oorspronkelijke naamgeving en definitie van dit gegevenselement conform de (authentieke) bron:Elementnaam:    BurgerservicenummerDefinitie:    Elk ingeschreven persoon heeft een BSN, een nummer dat de persoon uniek identificeert in alle overheidsadministraties.Norminstantie:    GBA",
@@ -813,9 +785,7 @@
                     "type": "string"
                 },
                 "Contactgegevens": {
-                    "items": {
-                        "$ref": "#/components/schemas/Contactgegevens"
-                    }
+                    "$ref": "#/components/schemas/Contactgegevens"
                 },
                 "Geboortedatum": {
                     "description": "De datum van geboorte van een PERSOON.Bron: NEN 1888:2002 - Geboortedatum (overgenomen zoals in SGR)Opmerking:Deze datum staat gewoonlijk vermeld op de geboorteakte dan wel een ander brondocument.Een GEBOORTEDATUM behoort te worden vastgesteld in verband met zijn rechtsgeldige betekenis, in het bijzonder voor de instellingen die minimaal een SZ-WET uitvoeren.",
@@ -823,9 +793,7 @@
                     "type": "string"
                 },
                 "Huisvesting": {
-                    "items": {
-                        "$ref": "#/components/schemas/Huisvesting"
-                    }
+                    "$ref": "#/components/schemas/Huisvesting"
                 },
                 "Kinderen": {
                     "items": {
@@ -842,19 +810,13 @@
                     "type": "array"
                 },
                 "Partner": {
-                    "items": {
-                        "$ref": "#/components/schemas/Partner"
-                    }
+                    "$ref": "#/components/schemas/Partner"
                 },
                 "Profiel": {
-                    "items": {
-                        "$ref": "#/components/schemas/Profiel"
-                    }
+                    "$ref": "#/components/schemas/Profiel"
                 },
                 "Verblijfstitel": {
-                    "items": {
-                        "$ref": "#/components/schemas/Verblijfstitel"
-                    }
+                    "$ref": "#/components/schemas/Verblijfstitel"
                 }
             },
             "required": [
@@ -1396,9 +1358,7 @@
                     "type": "string"
                 },
                 "LOBehandeld": {
-                    "items": {
-                        "$ref": "#/components/schemas/LOBehandeld"
-                    }
+                    "$ref": "#/components/schemas/LOBehandeld"
                 },
                 "Url": {
                     "description": "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.",
